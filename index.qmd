@@ -1,0 +1,77 @@
+---
+title: ""
+toc: false
+page-layout: full
+---
+
+::: {.hero}
+![](img/perfil.jpg){.hero__photo fig-alt="Foto de perfil"}
+
+::: {.hero__text}
+<h1 class="hero__name">Joaquín&nbsp;<span style="color:#e5383b">·</span></h1>
+<p class="hero__role">Estudiante de Ciencia Política (UDP) · investigación en desigualdad y élites · ciencia de datos con R</p>
+<p class="hero__tags">estratificación · redistribución · métodos cuantitativos · seguridad pública · género</p>
+
+::: {.btn-link-row}
+[✉ Email](mailto:TUCORREO@gmail.com){.pill}
+[GitHub ↗](https://github.com/TU_USUARIO){.pill}
+[LinkedIn ↗](https://www.linkedin.com/in/TU_USUARIO/){.pill}
+[Google Scholar ↗](https://scholar.google.com){.pill}
+[CV →](cv.qmd){.pill}
+:::
+:::
+:::
+
+## Sobre mí
+
+Soy estudiante de **Ciencia Política en la Universidad Diego Portales**, con un perfil orientado a los **métodos cuantitativos** y la **investigación social aplicada**. Me interesa entender cómo se reproduce la desigualdad y por qué las élites se resisten —o no— a la redistribución.
+
+Actualmente colaboro en el **Observatorio de Desigualdades (UDP)** y participo en investigación comparada sobre **percepciones de élites, redistribución y desigualdad** en América Latina. También me desempeño como **ayudante de cátedra** en teoría política, y trabajo análisis cuantitativo de encuestas complejas en **R**.
+
+Este sitio reúne mi CV, algunos **visualizadores interactivos** que voy construyendo a partir de bases de datos sociales, y una selección de lecturas que me interesan.
+
+## Líneas de interés
+
+::: {.card-grid}
+::: {.vcard}
+### Estratificación y desigualdad
+Medición de la desigualdad, clases sociales y movilidad. Cómo se estructura y legitima la distribución de recursos.
+<span class="tag">núcleo</span>
+:::
+
+::: {.vcard}
+### Élites y redistribución
+Preferencias de las élites frente a la política fiscal y el Estado de bienestar; evidencia comparada en América Latina.
+<span class="tag">investigación</span>
+:::
+
+::: {.vcard}
+### Seguridad pública y crimen
+Cómo la percepción del crimen y la inseguridad se vincula con actitudes sociales y políticas.
+<span class="tag">aplicado</span>
+:::
+
+::: {.vcard}
+### Género y violencia
+Análisis cuantitativo con enfoque de género; predictores de la violencia contra la mujer en Chile.
+<span class="tag">aplicado</span>
+:::
+
+::: {.vcard}
+### Métodos cuantitativos
+Regresión, modelos multinivel, ecuaciones estructurales (SEM) e inferencia causal aplicada a ciencias sociales.
+<span class="tag">métodos</span>
+:::
+
+::: {.vcard}
+### Ciencia de datos con R
+Manipulación de encuestas complejas, visualización y comunicación de resultados de forma reproducible.
+<span class="tag">herramientas</span>
+:::
+:::
+
+---
+
+::: {.lead}
+¿Quieres ver en qué estoy trabajando? Pasa por la sección de [**visualizadores**](visualizadores.qmd) o revisa mi [**CV**](cv.qmd).
+:::

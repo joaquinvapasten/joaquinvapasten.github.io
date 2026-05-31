@@ -1,0 +1,56 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+    - "proyectos/*.qmd"
+
+website:
+  title: "Joaquín"
+  description: "Ciencia política · desigualdad y élites · métodos cuantitativos con R"
+  site-url: "https://TU_USUARIO.github.io"
+  favicon: img/perfil.jpg
+  reader-mode: false
+
+  navbar:
+    pinned: true
+    logo: ""
+    title: "Joaquín"
+    left:
+      - text: "Sobre mí"
+        href: index.qmd
+      - text: "CV"
+        href: cv.qmd
+      - text: "Visualizadores"
+        href: visualizadores.qmd
+      - text: "Lecturas"
+        href: lecturas.qmd
+    right:
+      - icon: envelope
+        href: "mailto:TUCORREO@gmail.com"
+        aria-label: Email
+      - icon: github
+        href: "https://github.com/TU_USUARIO"
+        aria-label: GitHub
+      - icon: linkedin
+        href: "https://www.linkedin.com/in/TU_USUARIO/"
+        aria-label: LinkedIn
+
+  page-footer:
+    border: false
+    left: "© 2026 Joaquín"
+    center: "Estratificación · desigualdad · métodos cuantitativos"
+    right: "Hecho con [Quarto](https://quarto.org)"
+
+format:
+  html:
+    theme: custom.scss
+    css: styles.css
+    toc: false
+    page-layout: full
+    grid:
+      body-width: 1000px
+    link-external-newwindow: true
+    smooth-scroll: true
+    code-copy: true
+    code-overflow: wrap

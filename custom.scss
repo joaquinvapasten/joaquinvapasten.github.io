@@ -1,0 +1,284 @@
+/*-- scss:defaults --*/
+
+// ============================================================
+//  TEMA: "Carbón & Brasa"
+//  Negro · azul oscuro · rojo · rojo oscuro
+// ============================================================
+
+// --- Fuentes (Google Fonts) ---
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+// --- Paleta ---
+$black:        #07090f;   // negro casi puro (fondo)
+$ink:          #0b0f1a;   // negro azulado
+$navy:         #0d1b2a;   // azul oscuro
+$navy-2:       #14213d;   // azul oscuro 2 (superficies)
+$navy-3:       #1b263b;   // bordes / hover
+$red:          #e5383b;   // rojo acento
+$red-2:        #ba181b;   // rojo medio
+$red-dark:     #7a0c10;   // rojo oscuro
+$red-darker:   #3a0a0c;   // rojo oscuro profundo
+
+$text:         #e7e9ee;   // texto principal
+$text-muted:   #9aa3b5;   // texto secundario
+$white:        #f5f6f8;
+
+// --- Variables Bootstrap / Quarto ---
+$body-bg:                 $black;
+$body-color:              $text;
+$primary:                 $red;
+$secondary:               $navy-2;
+$light:                   $navy-2;
+$dark:                    $black;
+
+$link-color:              $red;
+$link-hover-color:        lighten($red, 12%);
+$link-decoration:         none;
+
+$font-family-sans-serif:  "IBM Plex Sans", system-ui, sans-serif;
+$font-family-monospace:   "IBM Plex Mono", "SFMono-Regular", monospace;
+$headings-font-family:     "Fraunces", Georgia, serif;
+$headings-font-weight:    700;
+$headings-color:          $white;
+
+$body-font-size:          1.05rem;
+$line-height-base:        1.7;
+
+// Código
+$code-color:              #ffb3b5;
+$code-bg:                 $navy;
+
+// Tablas
+$table-color:             $text;
+$table-border-color:      $navy-3;
+
+// Bordes generales
+$border-color:            $navy-3;
+
+// Navbar
+$navbar-bg:               rgba(7, 9, 15, 0.85);
+$navbar-fg:               $text-muted;
+$navbar-hl:               $red;
+
+// Footer
+$footer-bg:               $ink;
+$footer-fg:               $text-muted;
+
+
+/*-- scss:rules --*/
+
+// --- Atmósfera de fondo: degradado sutil + textura ---
+body {
+  background-color: $black;
+  background-image:
+    radial-gradient(900px 500px at 85% -5%, rgba(20, 33, 61, 0.55), transparent 60%),
+    radial-gradient(700px 400px at 0% 100%, rgba(58, 10, 12, 0.45), transparent 60%);
+  background-attachment: fixed;
+  letter-spacing: 0.1px;
+}
+
+// --- Navbar translúcida con desenfoque ---
+.navbar {
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid rgba(27, 38, 59, 0.7);
+}
+.navbar .navbar-brand {
+  font-family: "Fraunces", serif;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  color: $white !important;
+}
+.navbar .nav-link {
+  font-weight: 500;
+  transition: color .18s ease;
+}
+.navbar .nav-link:hover { color: $red !important; }
+
+// --- Títulos ---
+h1, h2, h3 {
+  letter-spacing: -0.5px;
+}
+h1 { font-size: 2.6rem; line-height: 1.1; }
+h2 {
+  font-size: 1.9rem;
+  margin-top: 2.2rem;
+  padding-bottom: .35rem;
+  border-bottom: 1px solid $navy-3;
+}
+h2 .header-section-number, h3 .header-section-number { color: $red; }
+
+// Pequeño acento rojo antes de los h2
+h2::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 3px;
+  background: $red;
+  margin-right: 12px;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+
+a { transition: color .15s ease; }
+
+// --- Hero de la portada ---
+.hero {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2.6rem;
+  align-items: center;
+  padding: 2.5rem 0 1rem;
+}
+.hero__photo {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid $navy-3;
+  box-shadow: 0 20px 50px rgba(0,0,0,.55),
+              0 0 0 6px rgba(13, 27, 42, .35);
+}
+.hero__name {
+  font-size: 3.1rem;
+  line-height: 1.02;
+  margin: 0 0 .4rem;
+}
+.hero__role {
+  color: $text-muted;
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+.hero__tags {
+  color: $red;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .9rem;
+  letter-spacing: .3px;
+}
+@media (max-width: 720px) {
+  .hero { grid-template-columns: 1fr; text-align: center; }
+  .hero__photo { margin: 0 auto; }
+  .hero__name { font-size: 2.3rem; }
+}
+
+// --- Botones de enlace social / acción ---
+.btn-link-row { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1.2rem 0; }
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .5rem .95rem;
+  border: 1px solid $navy-3;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(20,33,61,.45), rgba(11,15,26,.45));
+  color: $text;
+  font-size: .92rem;
+  font-weight: 500;
+  transition: all .18s ease;
+}
+.pill:hover {
+  border-color: $red;
+  color: $white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(122, 12, 16, .35);
+}
+
+// --- Tarjetas (visualizadores, lecturas) ---
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.2rem;
+  margin: 1.6rem 0;
+}
+.vcard {
+  display: block;
+  position: relative;
+  padding: 1.4rem 1.3rem;
+  border: 1px solid $navy-3;
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(20,33,61,.55), rgba(11,15,26,.85));
+  color: $text;
+  overflow: hidden;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.vcard::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, $red, $red-dark);
+  opacity: .85;
+}
+.vcard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(229, 56, 59, .6);
+  box-shadow: 0 16px 40px rgba(0,0,0,.5);
+  color: $text;
+}
+.vcard h3 { margin: 0 0 .4rem; font-size: 1.25rem; }
+.vcard p { color: $text-muted; margin: 0; font-size: .95rem; }
+.vcard .tag {
+  display: inline-block;
+  margin-top: .9rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .75rem;
+  color: $red;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.vcard.soon { opacity: .72; }
+.vcard.soon::after { background: $navy-3; }
+.vcard.soon .tag { color: $text-muted; }
+
+// --- Bloques de código ---
+pre.sourceCode, div.sourceCode {
+  border: 1px solid $navy-3;
+  border-radius: 10px;
+  background: $ink !important;
+}
+code:not(.sourceCode) {
+  background: rgba(13, 27, 42, .8);
+  padding: .12em .4em;
+  border-radius: 5px;
+}
+
+// --- Tablas ---
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+thead th {
+  background: $navy;
+  color: $white;
+  border-bottom: 2px solid $red-dark !important;
+}
+tbody tr:nth-child(even) { background: rgba(20, 33, 61, .25); }
+
+// --- Citas / blockquote ---
+blockquote {
+  border-left: 3px solid $red;
+  background: rgba(20, 33, 61, .35);
+  padding: .8rem 1.2rem;
+  border-radius: 0 8px 8px 0;
+  color: $text-muted;
+}
+
+// --- Footer ---
+.nav-footer {
+  border-top: 1px solid $navy-3 !important;
+  font-size: .85rem;
+}
+
+// --- Separador decorativo ---
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, $navy-3 20%, $red-dark 50%, $navy-3 80%, transparent);
+  margin: 2.4rem 0;
+}
+
+// --- Aparición suave al cargar ---
+.content > * { animation: rise .5s ease both; }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
