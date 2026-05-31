@@ -37,23 +37,23 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "\nJoaquín ·\n",
+    "title": "\nJoaquín Valenzuela Pastén ·\n",
     "section": "",
-    "text": "Estudiante de Ciencia Política (UDP) · investigación en desigualdad y élites · ciencia de datos con R\n\n\nestratificación · redistribución · métodos cuantitativos · seguridad pública · género\n\n\n✉ Email GitHub ↗ LinkedIn ↗ Google Scholar ↗ CV →"
+    "text": "Estudiante de Ciencia Política (UDP) · investigación en desigualdad y élites · ciencia de datos con R\n\n\nMétodos de Investigación Social · Criminología · Seguridad Pública · Desigualdades\n\n\n✉ Email GitHub ↗ LinkedIn ↗ Google Scholar ↗ CV →"
   },
   {
     "objectID": "index.html#sobre-mí",
     "href": "index.html#sobre-mí",
-    "title": "\nJoaquín ·\n",
+    "title": "\nJoaquín Valenzuela Pastén ·\n",
     "section": "Sobre mí",
-    "text": "Sobre mí\nSoy estudiante de Ciencia Política en la Universidad Diego Portales, con un perfil orientado a los métodos cuantitativos y la investigación social aplicada. Me interesa entender cómo se reproduce la desigualdad y por qué las élites se resisten —o no— a la redistribución.\nActualmente colaboro en el Observatorio de Desigualdades (UDP) y participo en investigación comparada sobre percepciones de élites, redistribución y desigualdad en América Latina. También me desempeño como ayudante de cátedra en teoría política, y trabajo análisis cuantitativo de encuestas complejas en R.\nEste sitio reúne mi CV, algunos visualizadores interactivos que voy construyendo a partir de bases de datos sociales, y una selección de lecturas que me interesan."
+    "text": "Sobre mí\nSoy estudiante de último año de Ciencia Política en la Universidad Diego Portales, mis intereses se alinean los métodos de investigación social, preferentemente aquellos relativos a la inferencia causal, también me gusta bastante la Criminología y la investigación en Seguridad Pública.\nActualmente estoy desarrollando mi tesis de pregrado acerca de cómo el miedo al crimen moldea las preferencias de política pública de los ricos sobre redistribución o represión.\nEn esta página he alojado mi CV, algunos visualizadores interactivos en los que he estado trabajando a partir de bases de datos sociales, y una selección de lecturas que me interesan bastante."
   },
   {
     "objectID": "index.html#líneas-de-interés",
     "href": "index.html#líneas-de-interés",
-    "title": "\nJoaquín ·\n",
+    "title": "\nJoaquín Valenzuela Pastén ·\n",
     "section": "Líneas de interés",
-    "text": "Líneas de interés\n\n\nEstratificación y desigualdad\nMedición de la desigualdad, clases sociales y movilidad. Cómo se estructura y legitima la distribución de recursos. núcleo\n\n\nÉlites y redistribución\nPreferencias de las élites frente a la política fiscal y el Estado de bienestar; evidencia comparada en América Latina. investigación\n\n\nSeguridad pública y crimen\nCómo la percepción del crimen y la inseguridad se vincula con actitudes sociales y políticas. aplicado\n\n\nGénero y violencia\nAnálisis cuantitativo con enfoque de género; predictores de la violencia contra la mujer en Chile. aplicado\n\n\nMétodos cuantitativos\nRegresión, modelos multinivel, ecuaciones estructurales (SEM) e inferencia causal aplicada a ciencias sociales. métodos\n\n\nCiencia de datos con R\nManipulación de encuestas complejas, visualización y comunicación de resultados de forma reproducible. herramientas\n\n\n\n\n¿Quieres ver en qué estoy trabajando? Pasa por la sección de visualizadores o revisa mi CV."
+    "text": "Líneas de interés\n\nSeguridad pública y crimen\nEn particular, determinantes del comportamiento delictivo, gobernanza criminal y estrategias de prevención del delito. Criminología\n\n\nMétodos cuantitativos\nEspecialmente métodos de inferencia causal, como Regresiones Discontinuas, Matching y Diferencias en Diferencias. Métodos\n\n\nMétodos computacionales en Ciencias Sociales\nManipulación de encuestas complejas, visualización y comunicación de resultados de forma reproducible. Aplicación de Machine Learning, Análisis de Redes Sociales (SNA), extracción automatizada de datos (Web Scraping en páginas estáticas y dinámicas) y análisis computacional de texto y discurso (estructurado y no estructurado) empleando Inteligencia Artificial (modelos ASR y LLMs). Métodos\n\n\n\n¿Quieres ver en qué estoy trabajando? Pasa por la sección de visualizadores o revisa mi CV."
   },
   {
     "objectID": "proyectos/ejemplo-desigualdad.html",
