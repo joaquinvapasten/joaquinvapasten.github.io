@@ -20,22 +20,9 @@ Próximamente publicaré aquí una carpeta compartida con literatura sobre desig
 
 ## Lecturas destacadas
 
-::: {.card-grid}
-::: {.vcard}
-### Élites y redistribución
-López, Atria y otros sobre por qué las élites latinoamericanas se resisten a la progresividad fiscal.
-<span class="tag">desigualdad</span>
-:::
-
-::: {.vcard}
-### Median voter & welfare
-Meltzer & Richard, De Swaan y la economía política del Estado de bienestar.
-<span class="tag">teoría</span>
-:::
-
 ::: {.vcard}
 ### Métodos
-Box-Steffensmeier & Jones (event history), modelos multinivel y SEM aplicados a ciencias sociales.
+aca pondre algunos que me gusten mucho.
 <span class="tag">métodos</span>
 :::
 :::
