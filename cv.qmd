@@ -15,9 +15,3 @@ Mi CV actualizado. Puedes verlo aquí mismo o descargarlo en PDF.
   Tu navegador no puede mostrar PDFs.
   [Descárgalo aquí](files/cv.pdf).
 </iframe>
-
-::: {.callout-note collapse="true"}
-## Cómo actualizar mi CV
-
-Para actualizar tu CV solo reemplaza el archivo `files/cv.pdf` por la versión nueva (manteniendo el mismo nombre), vuelve a publicar el sitio y listo. No necesitas tocar esta página.
-:::
