@@ -24,7 +24,7 @@ page-layout: full
 
 ## Sobre mí
 
-Soy estudiante de último año de Ciencia Política en la Universidad Diego Portales, mis intereses se alinean los métodos de investigación social, preferentemente aquellos relativos a la inferencia causal, también me gusta bastante la Criminología y la investigación en Seguridad Pública.
+Soy estudiante de último año de Ciencia Política en la Universidad Diego Portales, mis intereses se alinean con los métodos de investigación social, preferentemente aquellos relativos a la inferencia causal, también me gusta bastante la Criminología y la investigación en Seguridad Pública.
 
 Actualmente estoy desarrollando mi tesis de pregrado acerca de cómo el miedo al crimen moldea las preferencias de política pública de los ricos sobre redistribución o represión.
 
@@ -33,7 +33,7 @@ En esta página he alojado mi CV, algunos visualizadores interactivos en los que
 ## Líneas de interés
 
 ::: {.vcard}
-### Seguridad pública y crimen
+### Seguridad Pública y Crimen
 En particular, determinantes del comportamiento delictivo, gobernanza criminal y estrategias de prevención del delito.
 <span class="tag">Criminología</span>
 :::
