@@ -8,7 +8,7 @@ project:
 website:
   title: "Joaquín"
   description: "Ciencia política · desigualdad y élites · métodos cuantitativos con R"
-  site-url: "https://TU_USUARIO.github.io"
+  site-url: "https://joaquinvapasten.github.io"
   favicon: img/perfil.jpg
   reader-mode: false
 
@@ -27,13 +27,13 @@ website:
         href: lecturas.qmd
     right:
       - icon: envelope
-        href: "mailto:TUCORREO@gmail.com"
+        href: "mailto:joaquinvapasten@gmail.com"
         aria-label: Email
       - icon: github
-        href: "https://github.com/TU_USUARIO"
+        href: "https://github.com/joaquinvapasten"
         aria-label: GitHub
       - icon: linkedin
-        href: "https://www.linkedin.com/in/TU_USUARIO/"
+        href: "https://www.linkedin.com/in/joaquinvapasten/"
         aria-label: LinkedIn
 
   page-footer:

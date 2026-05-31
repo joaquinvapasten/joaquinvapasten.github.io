@@ -1,5 +1,8 @@
-/_site/
 /.quarto/
-*.zip
+/_site/
+/_extract/
+sitio-joaquin.zip
+*.Rproj.user
+.Rhistory
+.RData
 .DS_Store
-Thumbs.db

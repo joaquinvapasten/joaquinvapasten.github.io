@@ -1,0 +1,45 @@
+---
+title: "Lecturas"
+toc: false
+---
+
+Una biblioteca viva de textos, papers y recursos que me interesan, sobre desigualdad, élites, métodos y ciencias sociales computacionales.
+
+## Carpeta compartida
+
+Próximamente publicaré aquí una carpeta compartida con literatura sobre desigualdad, élites y métodos.
+
+::: {.callout-note collapse="true"}
+## Cómo embeber tu carpeta de Drive
+1. En Google Drive, comparte la carpeta como *"Cualquier persona con el enlace"*.
+2. Copia el ID de la URL: `drive.google.com/drive/folders/`**`ESTE_ID`**.
+3. Pégalo arriba reemplazando `ID_DE_TU_CARPETA`.
+
+> Por seguridad, comparte solo material que tengas permitido difundir.
+:::
+
+## Lecturas destacadas
+
+::: {.card-grid}
+::: {.vcard}
+### Élites y redistribución
+López, Atria y otros sobre por qué las élites latinoamericanas se resisten a la progresividad fiscal.
+<span class="tag">desigualdad</span>
+:::
+
+::: {.vcard}
+### Median voter & welfare
+Meltzer & Richard, De Swaan y la economía política del Estado de bienestar.
+<span class="tag">teoría</span>
+:::
+
+::: {.vcard}
+### Métodos
+Box-Steffensmeier & Jones (event history), modelos multinivel y SEM aplicados a ciencias sociales.
+<span class="tag">métodos</span>
+:::
+:::
+
+::: {.callout-tip}
+Puedes convertir esta sección en un **listado bibliográfico automático** con un archivo `.bib` y `nocite`, o transformarla en un blog de reseñas. Ver ideas en el README.
+:::

@@ -13,9 +13,9 @@ page-layout: full
 <p class="hero__tags">estratificación · redistribución · métodos cuantitativos · seguridad pública · género</p>
 
 ::: {.btn-link-row}
-[✉ Email](mailto:TUCORREO@gmail.com){.pill}
-[GitHub ↗](https://github.com/TU_USUARIO){.pill}
-[LinkedIn ↗](https://www.linkedin.com/in/TU_USUARIO/){.pill}
+[✉ Email](mailto:joaquinvapasten@gmail.com){.pill}
+[GitHub ↗](https://github.com/joaquinvapasten){.pill}
+[LinkedIn ↗](https://www.linkedin.com/in/joaquinvapasten/){.pill}
 [Google Scholar ↗](https://scholar.google.com){.pill}
 [CV →](cv.qmd){.pill}
 :::
