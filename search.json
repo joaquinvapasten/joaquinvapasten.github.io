@@ -1,0 +1,93 @@
+[
+  {
+    "objectID": "visualizadores.html",
+    "href": "visualizadores.html",
+    "title": "Visualizadores",
+    "section": "",
+    "text": "Visualizaciones interactivas que construyo a partir de bases de datos sociales, hechas en R (con ggplot2, plotly, DT, leaflet) y renderizadas con Quarto. Cada una vive en su propia página y se puede explorar directamente en el navegador, sin servidor.\n\n### Ejemplo: Desigualdad regional Visualizador de demostración con datos simulados: gráficos interactivos, tabla filtrable y mapa. Plantilla para tus propios análisis. demo · activo\n\nPercepciones de élites (WVS)\nÉlites, confianza y apoyo a la redistribución a partir de la World Values Survey. próximamente\n\n\nViolencia contra la mujer (ENVIF-VCM)\nPredictores sociodemográficos de la violencia contra la mujer en Chile. próximamente\n\n\nCaracterización CASEN\nExplorador interactivo de pobreza e ingresos por región y año. próximamente\n\n\n\n\n\n\n\n\nTipCómo agregar un nuevo visualizador\n\n\n\n\n\n\nCrea un archivo proyectos/mi-analisis.qmd (puedes copiar proyectos/ejemplo-desigualdad.qmd como base).\nEscribe tu análisis en R dentro de bloques ```{r}.\nAgrega una tarjeta en esta página apuntando a proyectos/mi-analisis.html.\nVuelve a publicar con quarto publish gh-pages."
+  },
+  {
+    "objectID": "lecturas.html",
+    "href": "lecturas.html",
+    "title": "Lecturas",
+    "section": "",
+    "text": "Una biblioteca viva de textos, papers y recursos que me interesan, sobre desigualdad, élites, métodos y ciencias sociales computacionales."
+  },
+  {
+    "objectID": "lecturas.html#carpeta-compartida",
+    "href": "lecturas.html#carpeta-compartida",
+    "title": "Lecturas",
+    "section": "Carpeta compartida",
+    "text": "Carpeta compartida\nPróximamente publicaré aquí una carpeta compartida con literatura sobre desigualdad, élites y métodos.\n\n\n\n\n\n\nNoteCómo embeber tu carpeta de Drive\n\n\n\n\n\n\nEn Google Drive, comparte la carpeta como “Cualquier persona con el enlace”.\nCopia el ID de la URL: drive.google.com/drive/folders/ESTE_ID.\nPégalo arriba reemplazando ID_DE_TU_CARPETA.\n\n\nPor seguridad, comparte solo material que tengas permitido difundir."
+  },
+  {
+    "objectID": "lecturas.html#lecturas-destacadas",
+    "href": "lecturas.html#lecturas-destacadas",
+    "title": "Lecturas",
+    "section": "Lecturas destacadas",
+    "text": "Lecturas destacadas\n\n\nÉlites y redistribución\nLópez, Atria y otros sobre por qué las élites latinoamericanas se resisten a la progresividad fiscal. desigualdad\n\n\nMedian voter & welfare\nMeltzer & Richard, De Swaan y la economía política del Estado de bienestar. teoría\n\n\nMétodos\nBox-Steffensmeier & Jones (event history), modelos multinivel y SEM aplicados a ciencias sociales. métodos\n\n\n\n\n\n\n\n\nTip\n\n\n\nPuedes convertir esta sección en un listado bibliográfico automático con un archivo .bib y nocite, o transformarla en un blog de reseñas. Ver ideas en el README."
+  },
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Mi CV actualizado. Puedes verlo aquí mismo o descargarlo en PDF.\n\n⬇ Descargar CV (PDF)\n\n\n\nTu navegador no puede mostrar PDFs. &lt;a href=\"files/cv.pdf\"&gt;Descárgalo aquí&lt;/a&gt;.\n\n\n\n\n\n\n\nNoteCómo actualizar mi CV\n\n\n\n\n\nPara actualizar tu CV solo reemplaza el archivo files/cv.pdf por la versión nueva (manteniendo el mismo nombre), vuelve a publicar el sitio y listo. No necesitas tocar esta página."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "\nJoaquín ·\n",
+    "section": "",
+    "text": "Estudiante de Ciencia Política (UDP) · investigación en desigualdad y élites · ciencia de datos con R\n\n\nestratificación · redistribución · métodos cuantitativos · seguridad pública · género\n\n\n✉ Email GitHub ↗ LinkedIn ↗ Google Scholar ↗ CV →"
+  },
+  {
+    "objectID": "index.html#sobre-mí",
+    "href": "index.html#sobre-mí",
+    "title": "\nJoaquín ·\n",
+    "section": "Sobre mí",
+    "text": "Sobre mí\nSoy estudiante de Ciencia Política en la Universidad Diego Portales, con un perfil orientado a los métodos cuantitativos y la investigación social aplicada. Me interesa entender cómo se reproduce la desigualdad y por qué las élites se resisten —o no— a la redistribución.\nActualmente colaboro en el Observatorio de Desigualdades (UDP) y participo en investigación comparada sobre percepciones de élites, redistribución y desigualdad en América Latina. También me desempeño como ayudante de cátedra en teoría política, y trabajo análisis cuantitativo de encuestas complejas en R.\nEste sitio reúne mi CV, algunos visualizadores interactivos que voy construyendo a partir de bases de datos sociales, y una selección de lecturas que me interesan."
+  },
+  {
+    "objectID": "index.html#líneas-de-interés",
+    "href": "index.html#líneas-de-interés",
+    "title": "\nJoaquín ·\n",
+    "section": "Líneas de interés",
+    "text": "Líneas de interés\n\n\nEstratificación y desigualdad\nMedición de la desigualdad, clases sociales y movilidad. Cómo se estructura y legitima la distribución de recursos. núcleo\n\n\nÉlites y redistribución\nPreferencias de las élites frente a la política fiscal y el Estado de bienestar; evidencia comparada en América Latina. investigación\n\n\nSeguridad pública y crimen\nCómo la percepción del crimen y la inseguridad se vincula con actitudes sociales y políticas. aplicado\n\n\nGénero y violencia\nAnálisis cuantitativo con enfoque de género; predictores de la violencia contra la mujer en Chile. aplicado\n\n\nMétodos cuantitativos\nRegresión, modelos multinivel, ecuaciones estructurales (SEM) e inferencia causal aplicada a ciencias sociales. métodos\n\n\nCiencia de datos con R\nManipulación de encuestas complejas, visualización y comunicación de resultados de forma reproducible. herramientas\n\n\n\n\n¿Quieres ver en qué estoy trabajando? Pasa por la sección de visualizadores o revisa mi CV."
+  },
+  {
+    "objectID": "proyectos/ejemplo-desigualdad.html",
+    "href": "proyectos/ejemplo-desigualdad.html",
+    "title": "Desigualdad regional — visualizador de ejemplo",
+    "section": "",
+    "text": "Esta página es una plantilla de ejemplo con datos simulados. Reemplaza el bloque de datos por tu base real (p. ej. CASEN, WVS, ENVIF) y reutiliza el resto del código."
+  },
+  {
+    "objectID": "proyectos/ejemplo-desigualdad.html#desigualdad-gini-por-región",
+    "href": "proyectos/ejemplo-desigualdad.html#desigualdad-gini-por-región",
+    "title": "Desigualdad regional — visualizador de ejemplo",
+    "section": "Desigualdad (Gini) por región",
+    "text": "Desigualdad (Gini) por región"
+  },
+  {
+    "objectID": "proyectos/ejemplo-desigualdad.html#ingreso-vs.-pobreza",
+    "href": "proyectos/ejemplo-desigualdad.html#ingreso-vs.-pobreza",
+    "title": "Desigualdad regional — visualizador de ejemplo",
+    "section": "Ingreso vs. pobreza",
+    "text": "Ingreso vs. pobreza"
+  },
+  {
+    "objectID": "proyectos/ejemplo-desigualdad.html#tabla-interactiva",
+    "href": "proyectos/ejemplo-desigualdad.html#tabla-interactiva",
+    "title": "Desigualdad regional — visualizador de ejemplo",
+    "section": "Tabla interactiva",
+    "text": "Tabla interactiva"
+  },
+  {
+    "objectID": "proyectos/ejemplo-desigualdad.html#mapa",
+    "href": "proyectos/ejemplo-desigualdad.html#mapa",
+    "title": "Desigualdad regional — visualizador de ejemplo",
+    "section": "Mapa",
+    "text": "Mapa\n\n\n\n\n\n\n\nDatos simulados solo con fines de demostración. La estructura del código (gráficos, tabla y mapa) es directamente reutilizable con bases reales."
+  }
+]
