@@ -32,7 +32,7 @@
     "href": "cv.html",
     "title": "Curriculum Vitae",
     "section": "",
-    "text": "Mi CV actualizado. Puedes verlo aquí mismo o descargarlo en PDF.\n\n⬇ Descargar CV (PDF)\n\n\n\nTu navegador no puede mostrar PDFs. &lt;a href=\"files/cv.pdf\"&gt;Descárgalo aquí&lt;/a&gt;.\n\n\n\n\n\n\n\nNoteCómo actualizar mi CV\n\n\n\n\n\nPara actualizar tu CV solo reemplaza el archivo files/cv.pdf por la versión nueva (manteniendo el mismo nombre), vuelve a publicar el sitio y listo. No necesitas tocar esta página."
+    "text": "Mi CV actualizado. Puedes verlo aquí mismo o descargarlo en PDF.\n\n⬇ Descargar CV (PDF)\n\n\n\nTu navegador no puede mostrar PDFs. &lt;a href=\"files/cv.pdf\"&gt;Descárgalo aquí&lt;/a&gt;."
   },
   {
     "objectID": "index.html",
@@ -46,14 +46,14 @@
     "href": "index.html#sobre-mí",
     "title": "\nJoaquín Valenzuela Pastén ·\n",
     "section": "Sobre mí",
-    "text": "Sobre mí\nSoy estudiante de último año de Ciencia Política en la Universidad Diego Portales, mis intereses se alinean los métodos de investigación social, preferentemente aquellos relativos a la inferencia causal, también me gusta bastante la Criminología y la investigación en Seguridad Pública.\nActualmente estoy desarrollando mi tesis de pregrado acerca de cómo el miedo al crimen moldea las preferencias de política pública de los ricos sobre redistribución o represión.\nEn esta página he alojado mi CV, algunos visualizadores interactivos en los que he estado trabajando a partir de bases de datos sociales, y una selección de lecturas que me interesan bastante."
+    "text": "Sobre mí\nSoy estudiante de último año de Ciencia Política en la Universidad Diego Portales, mis intereses se alinean con los métodos de investigación social, preferentemente aquellos relativos a la inferencia causal, también me gusta bastante la Criminología y la investigación en Seguridad Pública.\nActualmente estoy desarrollando mi tesis de pregrado acerca de cómo el miedo al crimen moldea las preferencias de política pública de los ricos sobre redistribución o represión.\nEn esta página he alojado mi CV, algunos visualizadores interactivos en los que he estado trabajando a partir de bases de datos sociales, y una selección de lecturas que me interesan bastante."
   },
   {
     "objectID": "index.html#líneas-de-interés",
     "href": "index.html#líneas-de-interés",
     "title": "\nJoaquín Valenzuela Pastén ·\n",
     "section": "Líneas de interés",
-    "text": "Líneas de interés\n\nSeguridad pública y crimen\nEn particular, determinantes del comportamiento delictivo, gobernanza criminal y estrategias de prevención del delito. Criminología\n\n\nMétodos cuantitativos\nEspecialmente métodos de inferencia causal, como Regresiones Discontinuas, Matching y Diferencias en Diferencias. Métodos\n\n\nMétodos computacionales en Ciencias Sociales\nManipulación de encuestas complejas, visualización y comunicación de resultados de forma reproducible. Aplicación de Machine Learning, Análisis de Redes Sociales (SNA), extracción automatizada de datos (Web Scraping en páginas estáticas y dinámicas) y análisis computacional de texto y discurso (estructurado y no estructurado) empleando Inteligencia Artificial (modelos ASR y LLMs). Métodos\n\n\n\n¿Quieres ver en qué estoy trabajando? Pasa por la sección de visualizadores o revisa mi CV."
+    "text": "Líneas de interés\n\nSeguridad Pública y Crimen\nEn particular, determinantes del comportamiento delictivo, gobernanza criminal y estrategias de prevención del delito. Criminología\n\n\nMétodos cuantitativos\nEspecialmente métodos de inferencia causal, como Regresiones Discontinuas, Matching y Diferencias en Diferencias. Métodos\n\n\nMétodos computacionales en Ciencias Sociales\nManipulación de encuestas complejas, visualización y comunicación de resultados de forma reproducible. Aplicación de Machine Learning, Análisis de Redes Sociales (SNA), extracción automatizada de datos (Web Scraping en páginas estáticas y dinámicas) y análisis computacional de texto y discurso (estructurado y no estructurado) empleando Inteligencia Artificial (modelos ASR y LLMs). Métodos\n\n\n\n¿Quieres ver en qué estoy trabajando? Pasa por la sección de visualizadores o revisa mi CV."
   },
   {
     "objectID": "proyectos/ejemplo-desigualdad.html",
