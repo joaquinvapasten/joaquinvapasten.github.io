@@ -2,22 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://joaquinvapasten.github.io/visualizadores.html</loc>
-    <lastmod>2026-05-31T20:51:15.807Z</lastmod>
+    <lastmod>2026-06-09T21:50:30.475Z</lastmod>
   </url>
   <url>
-    <loc>https://joaquinvapasten.github.io/lecturas.html</loc>
-    <lastmod>2026-05-31T20:51:15.807Z</lastmod>
+    <loc>https://joaquinvapasten.github.io/proyectos/enusc-no-denuncia.html</loc>
+    <lastmod>2026-06-09T21:50:30.475Z</lastmod>
   </url>
   <url>
-    <loc>https://joaquinvapasten.github.io/cv.html</loc>
-    <lastmod>2026-05-31T20:51:15.806Z</lastmod>
+    <loc>https://joaquinvapasten.github.io/proyectos/casen-pobreza.html</loc>
+    <lastmod>2026-06-09T21:50:30.474Z</lastmod>
   </url>
   <url>
     <loc>https://joaquinvapasten.github.io/index.html</loc>
-    <lastmod>2026-05-31T20:51:15.807Z</lastmod>
+    <lastmod>2026-06-09T21:50:30.473Z</lastmod>
+  </url>
+  <url>
+    <loc>https://joaquinvapasten.github.io/cv.html</loc>
+    <lastmod>2026-06-09T21:50:30.472Z</lastmod>
+  </url>
+  <url>
+    <loc>https://joaquinvapasten.github.io/lecturas.html</loc>
+    <lastmod>2026-06-09T21:50:30.473Z</lastmod>
   </url>
   <url>
     <loc>https://joaquinvapasten.github.io/proyectos/ejemplo-desigualdad.html</loc>
-    <lastmod>2026-05-31T20:51:15.807Z</lastmod>
+    <lastmod>2026-06-09T21:50:30.475Z</lastmod>
+  </url>
+  <url>
+    <loc>https://joaquinvapasten.github.io/proyectos/territorio-cruzado.html</loc>
+    <lastmod>2026-06-09T21:50:30.475Z</lastmod>
   </url>
 </urlset>

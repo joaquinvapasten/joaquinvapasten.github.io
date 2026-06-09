@@ -160,9 +160,12 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Visualizaciones interactivas que construyo a partir de bases de datos sociales, hechas en <strong>R</strong> (con <code>ggplot2</code>, <code>plotly</code>, <code>DT</code>, <code>leaflet</code>) y renderizadas con Quarto. Cada una vive en su propia página y se puede explorar directamente en el navegador, sin servidor.</p>
+<p>Visualizaciones interactivas construidas desde <strong>microdatos oficiales</strong> (INE, MDSF), con <strong>diseño muestral complejo</strong> (estratos, conglomerados y factores de expansión vía <code>survey</code> en R) y renderizadas con Quarto + plotly. Cada una vive en su propia página y se explora directamente en el navegador.</p>
 <div class="card-grid">
-<p><span class="vcard" onclick="window.location='proyectos/ejemplo-desigualdad.html'" style="cursor:pointer;">### Ejemplo: Desigualdad regional Visualizador de demostración con datos simulados: gráficos interactivos, tabla filtrable y mapa. Plantilla para tus propios análisis. <span class="tag">demo · activo</span></span></p>
+<p><span class="vcard" onclick="window.location='proyectos/enusc-no-denuncia.html'" style="cursor:pointer;">### ENUSC: denuncia y cifra negra Victimización 2008–2024, tasa de denuncia por delito, motivos para no denunciar y brechas regionales. El corazón de mi investigación. <span class="tag">ENUSC · INE · 2008–2024</span></span></p>
+<p><span class="vcard" onclick="window.location='proyectos/casen-pobreza.html'" style="cursor:pointer;">### CASEN: pobreza e ingresos Serie de pobreza por ingresos 2013–2024 con IC 95%, mapa regional, dumbbell del avance por región, mediana de ingresos y ratio p90/p10. <span class="tag">CASEN · MDSF · 2013–2024</span></span></p>
+<p><span class="vcard" onclick="window.location='proyectos/territorio-cruzado.html'" style="cursor:pointer;">### Pobreza × crimen: cruce territorial CASEN y ENUSC 2024 cruzadas a nivel regional: ¿coinciden la geografía de la pobreza, la de la victimización y la de la cifra negra? <span class="tag">cruce · 16 regiones · 2024</span></span></p>
+<p><span class="vcard" onclick="window.location='proyectos/ejemplo-desigualdad.html'" style="cursor:pointer;">### Demo: plantilla de visualizador Página de demostración con datos simulados (gráficos, tabla y mapa) que uso como plantilla para nuevos análisis. <span class="tag">demo</span></span></p>
 <section id="percepciones-de-élites-wvs" class="level3 vcard soon">
 <h3 class="anchored" data-anchor-id="percepciones-de-élites-wvs">Percepciones de élites (WVS)</h3>
 <p>Élites, confianza y apoyo a la redistribución a partir de la World Values Survey. <span class="tag">próximamente</span></p>
@@ -171,10 +174,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="violencia-contra-la-mujer-envif-vcm">Violencia contra la mujer (ENVIF-VCM)</h3>
 <p>Predictores sociodemográficos de la violencia contra la mujer en Chile. <span class="tag">próximamente</span></p>
 </section>
-<section id="caracterización-casen" class="level3 vcard soon">
-<h3 class="anchored" data-anchor-id="caracterización-casen">Caracterización CASEN</h3>
-<p>Explorador interactivo de pobreza e ingresos por región y año. <span class="tag">próximamente</span></p>
-</section>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -182,17 +181,17 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Cómo agregar un nuevo visualizador
+<span class="screen-reader-only">Tip</span>Cómo se construyen
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Crea un archivo <code>proyectos/mi-analisis.qmd</code> (puedes copiar <code>proyectos/ejemplo-desigualdad.qmd</code> como base).</li>
-<li>Escribe tu análisis en R dentro de bloques <code>```{r}</code>.</li>
-<li>Agrega una tarjeta en esta página apuntando a <code>proyectos/mi-analisis.html</code>.</li>
-<li>Vuelve a publicar con <code>quarto publish gh-pages</code>.</li>
+<li>Un script en <code>prep/</code> lee los <strong>microdatos</strong> (no viajan al repositorio) y estima con <code>survey::svydesign</code> los indicadores con sus IC 95%.</li>
+<li>Los agregados (CSV pequeños) viven en <code>data/</code> dentro del repo.</li>
+<li>Cada página <code>proyectos/*.qmd</code> lee esos CSV y arma los gráficos interactivos con plotly y DT.</li>
+<li>GitHub Actions renderiza y publica automáticamente con cada push.</li>
 </ol>
 </div>
 </div>

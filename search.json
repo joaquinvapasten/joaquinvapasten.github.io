@@ -4,35 +4,105 @@
     "href": "visualizadores.html",
     "title": "Visualizadores",
     "section": "",
-    "text": "Visualizaciones interactivas que construyo a partir de bases de datos sociales, hechas en R (con ggplot2, plotly, DT, leaflet) y renderizadas con Quarto. Cada una vive en su propia página y se puede explorar directamente en el navegador, sin servidor.\n\n### Ejemplo: Desigualdad regional Visualizador de demostración con datos simulados: gráficos interactivos, tabla filtrable y mapa. Plantilla para tus propios análisis. demo · activo\n\nPercepciones de élites (WVS)\nÉlites, confianza y apoyo a la redistribución a partir de la World Values Survey. próximamente\n\n\nViolencia contra la mujer (ENVIF-VCM)\nPredictores sociodemográficos de la violencia contra la mujer en Chile. próximamente\n\n\nCaracterización CASEN\nExplorador interactivo de pobreza e ingresos por región y año. próximamente\n\n\n\n\n\n\n\n\nTipCómo agregar un nuevo visualizador\n\n\n\n\n\n\nCrea un archivo proyectos/mi-analisis.qmd (puedes copiar proyectos/ejemplo-desigualdad.qmd como base).\nEscribe tu análisis en R dentro de bloques ```{r}.\nAgrega una tarjeta en esta página apuntando a proyectos/mi-analisis.html.\nVuelve a publicar con quarto publish gh-pages."
+    "text": "Visualizaciones interactivas construidas desde microdatos oficiales (INE, MDSF), con diseño muestral complejo (estratos, conglomerados y factores de expansión vía survey en R) y renderizadas con Quarto + plotly. Cada una vive en su propia página y se explora directamente en el navegador.\n\n### ENUSC: denuncia y cifra negra Victimización 2008–2024, tasa de denuncia por delito, motivos para no denunciar y brechas regionales. El corazón de mi investigación. ENUSC · INE · 2008–2024\n### CASEN: pobreza e ingresos Serie de pobreza por ingresos 2013–2024 con IC 95%, mapa regional, dumbbell del avance por región, mediana de ingresos y ratio p90/p10. CASEN · MDSF · 2013–2024\n### Pobreza × crimen: cruce territorial CASEN y ENUSC 2024 cruzadas a nivel regional: ¿coinciden la geografía de la pobreza, la de la victimización y la de la cifra negra? cruce · 16 regiones · 2024\n### Demo: plantilla de visualizador Página de demostración con datos simulados (gráficos, tabla y mapa) que uso como plantilla para nuevos análisis. demo\n\nPercepciones de élites (WVS)\nÉlites, confianza y apoyo a la redistribución a partir de la World Values Survey. próximamente\n\n\nViolencia contra la mujer (ENVIF-VCM)\nPredictores sociodemográficos de la violencia contra la mujer en Chile. próximamente\n\n\n\n\n\n\n\n\nTipCómo se construyen\n\n\n\n\n\n\nUn script en prep/ lee los microdatos (no viajan al repositorio) y estima con survey::svydesign los indicadores con sus IC 95%.\nLos agregados (CSV pequeños) viven en data/ dentro del repo.\nCada página proyectos/*.qmd lee esos CSV y arma los gráficos interactivos con plotly y DT.\nGitHub Actions renderiza y publica automáticamente con cada push."
   },
   {
-    "objectID": "lecturas.html",
-    "href": "lecturas.html",
-    "title": "Lecturas",
+    "objectID": "proyectos/enusc-no-denuncia.html",
+    "href": "proyectos/enusc-no-denuncia.html",
+    "title": "ENUSC: victimización, denuncia y cifra negra",
     "section": "",
-    "text": "Una biblioteca viva de textos, papers y recursos que me interesan, sobre desigualdad, élites, métodos y ciencias sociales computacionales."
+    "text": "NoteCómo leer estas cifras\n\n\n\nTodas las estimaciones se calcularon desde los microdatos del INE usando el diseño muestral complejo de la encuesta: estratos (varstrat), conglomerados (conglomerado) y factores de expansión del período correspondiente, con el paquete survey de R. Las bandas y barras de error son intervalos de confianza al 95%."
   },
   {
-    "objectID": "lecturas.html#carpeta-compartida",
-    "href": "lecturas.html#carpeta-compartida",
-    "title": "Lecturas",
-    "section": "Carpeta compartida",
-    "text": "Carpeta compartida\nPróximamente publicaré aquí una carpeta compartida con literatura sobre desigualdad, élites y métodos.\n\n\n\n\n\n\nNoteCómo embeber tu carpeta de Drive\n\n\n\n\n\n\nEn Google Drive, comparte la carpeta como “Cualquier persona con el enlace”.\nCopia el ID de la URL: drive.google.com/drive/folders/ESTE_ID.\nPégalo arriba reemplazando ID_DE_TU_CARPETA.\n\n\nPor seguridad, comparte solo material que tengas permitido difundir."
+    "objectID": "proyectos/enusc-no-denuncia.html#victimización-y-percepción-20082024",
+    "href": "proyectos/enusc-no-denuncia.html#victimización-y-percepción-20082024",
+    "title": "ENUSC: victimización, denuncia y cifra negra",
+    "section": "Victimización y percepción, 2008–2024",
+    "text": "Victimización y percepción, 2008–2024\n¿Qué porcentaje de hogares fue víctima de un delito violento o de mayor connotación social (DMCS)? ¿Y cómo se compara con la percepción de que la delincuencia aumentó? Elige el indicador en el menú.\n\n\n\n\n\n\n\n\n\n\n\n\nTipQué muestra cada indicador\n\n\n\n\n\n\nHogar víctima DMCS: hogares víctimas de algún delito de mayor connotación social en los últimos 12 meses (factor de hogares).\nPercepción de aumento: personas que creen que la delincuencia aumentó en el país (factor de personas). La brecha entre percepción y victimización es uno de los hallazgos clásicos de la ENUSC.\nRobos y hurtos a personas usan factor de personas; robos asociados a la vivienda o vehículos, factor de hogares."
   },
   {
-    "objectID": "lecturas.html#lecturas-destacadas",
-    "href": "lecturas.html#lecturas-destacadas",
-    "title": "Lecturas",
-    "section": "Lecturas destacadas",
-    "text": "Lecturas destacadas\n\nMétodos\naca pondre algunos que me gusten mucho. métodos\n\n:::\n\n\n\n\n\n\nTip\n\n\n\nPuedes convertir esta sección en un listado bibliográfico automático con un archivo .bib y nocite, o transformarla en un blog de reseñas. Ver ideas en el README."
+    "objectID": "proyectos/enusc-no-denuncia.html#la-foto-regional-20182024",
+    "href": "proyectos/enusc-no-denuncia.html#la-foto-regional-20182024",
+    "title": "ENUSC: victimización, denuncia y cifra negra",
+    "section": "La foto regional (2018–2024)",
+    "text": "La foto regional (2018–2024)"
   },
   {
-    "objectID": "cv.html",
-    "href": "cv.html",
-    "title": "Curriculum Vitae",
+    "objectID": "proyectos/enusc-no-denuncia.html#quién-denuncia-la-cifra-negra",
+    "href": "proyectos/enusc-no-denuncia.html#quién-denuncia-la-cifra-negra",
+    "title": "ENUSC: victimización, denuncia y cifra negra",
+    "section": "2024: ¿quién denuncia? La cifra negra",
+    "text": "2024: ¿quién denuncia? La cifra negra\nDe cada delito sufrido en 2024, ¿cuántas víctimas lo denunciaron formalmente? La cifra negra —el complemento— es el corazón de mi investigación: delitos que nunca entran a las estadísticas oficiales.\n\n\n\n\n\n\n\nLos delitos violentos y patrimoniales mayores (robo de vehículo, robo en la vivienda, robo con violencia) se denuncian mucho más que los ciberdelitos y delitos económicos, donde la cifra negra supera con holgura el 80%."
+  },
+  {
+    "objectID": "proyectos/enusc-no-denuncia.html#por-qué-no-se-denuncia",
+    "href": "proyectos/enusc-no-denuncia.html#por-qué-no-se-denuncia",
+    "title": "ENUSC: victimización, denuncia y cifra negra",
+    "section": "¿Por qué NO se denuncia?",
+    "text": "¿Por qué NO se denuncia?\nMotivo principal declarado por quienes no denunciaron, según delito (menú)."
+  },
+  {
+    "objectID": "proyectos/enusc-no-denuncia.html#denuncia-por-región-delitos-seleccionados-2024",
+    "href": "proyectos/enusc-no-denuncia.html#denuncia-por-región-delitos-seleccionados-2024",
+    "title": "ENUSC: victimización, denuncia y cifra negra",
+    "section": "Denuncia por región (delitos seleccionados, 2024)",
+    "text": "Denuncia por región (delitos seleccionados, 2024)"
+  },
+  {
+    "objectID": "proyectos/enusc-no-denuncia.html#datos",
+    "href": "proyectos/enusc-no-denuncia.html#datos",
+    "title": "ENUSC: victimización, denuncia y cifra negra",
+    "section": "Datos",
+    "text": "Datos\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteNota metodológica\n\n\n\n\n\n\nFuente: ENUSC (INE). Serie 2008–2024 desde la base interanual oficial; módulo de denuncia desde la base 2024.\nDiseño: estimadores de razón con estratos y conglomerados (survey::svydesign, nest = TRUE), factores de expansión del período de comparabilidad correspondiente (2008–2019 y 2019–2024); opción survey.lonely.psu = \"adjust\".\nDenuncia: porcentaje de víctimas que declara que el último incidente fue denunciado formalmente; motivos entre quienes no denunciaron. Delitos de hogar usan factor de hogar; delitos a la persona, factor de personas.\nRegión: serie regional disponible desde 2018 (codificación de 16 regiones de la base interanual).\nLos archivos agregados (CSV) están disponibles en el repositorio del sitio; el código de preparación, en la carpeta prep/."
+  },
+  {
+    "objectID": "proyectos/casen-pobreza.html",
+    "href": "proyectos/casen-pobreza.html",
+    "title": "CASEN: pobreza e ingresos en Chile",
     "section": "",
-    "text": "Mi CV actualizado. Puedes verlo aquí mismo o descargarlo en PDF.\n\n⬇ Descargar CV (PDF)\n\n\n\nTu navegador no puede mostrar PDFs. &lt;a href=\"files/cv.pdf\"&gt;Descárgalo aquí&lt;/a&gt;."
+    "text": "NoteSobre estas estimaciones\n\n\n\nCalculadas desde los microdatos CASEN con el diseño complejo de la encuesta (varstrat + varunit + factor regional expr) usando survey en R; IC al 95%. Serie con metodología nueva de pobreza por ingresos (comparable desde 2013). La base CASEN 2022 local estaba dañada, por lo que la serie usa 2013 · 2015 · 2017 · 2024."
+  },
+  {
+    "objectID": "proyectos/casen-pobreza.html#la-caída-y-el-piso-de-la-pobreza-por-ingresos",
+    "href": "proyectos/casen-pobreza.html#la-caída-y-el-piso-de-la-pobreza-por-ingresos",
+    "title": "CASEN: pobreza e ingresos en Chile",
+    "section": "La caída (y el piso) de la pobreza por ingresos",
+    "text": "La caída (y el piso) de la pobreza por ingresos"
+  },
+  {
+    "objectID": "proyectos/casen-pobreza.html#el-mapa-de-la-pobreza-2024",
+    "href": "proyectos/casen-pobreza.html#el-mapa-de-la-pobreza-2024",
+    "title": "CASEN: pobreza e ingresos en Chile",
+    "section": "El mapa de la pobreza (2024)",
+    "text": "El mapa de la pobreza (2024)"
+  },
+  {
+    "objectID": "proyectos/casen-pobreza.html#qué-regiones-avanzaron-más-2013-2024",
+    "href": "proyectos/casen-pobreza.html#qué-regiones-avanzaron-más-2013-2024",
+    "title": "CASEN: pobreza e ingresos en Chile",
+    "section": "¿Qué regiones avanzaron más? 2013 → 2024",
+    "text": "¿Qué regiones avanzaron más? 2013 → 2024"
+  },
+  {
+    "objectID": "proyectos/casen-pobreza.html#ingresos-mediana-per-cápita-y-desigualdad-p90p10",
+    "href": "proyectos/casen-pobreza.html#ingresos-mediana-per-cápita-y-desigualdad-p90p10",
+    "title": "CASEN: pobreza e ingresos en Chile",
+    "section": "Ingresos: mediana per cápita y desigualdad p90/p10",
+    "text": "Ingresos: mediana per cápita y desigualdad p90/p10\n\n\n\n\n\n\n\nLa mediana de ingresos per cápita del hogar (en pesos corrientes de cada año) ha subido sostenidamente, mientras el cociente p90/p10 —cuántas veces el ingreso del percentil 90 supera al del 10— resume la persistencia de la desigualdad."
+  },
+  {
+    "objectID": "proyectos/casen-pobreza.html#mediana-regional-2024",
+    "href": "proyectos/casen-pobreza.html#mediana-regional-2024",
+    "title": "CASEN: pobreza e ingresos en Chile",
+    "section": "Mediana regional 2024",
+    "text": "Mediana regional 2024"
+  },
+  {
+    "objectID": "proyectos/casen-pobreza.html#datos",
+    "href": "proyectos/casen-pobreza.html#datos",
+    "title": "CASEN: pobreza e ingresos en Chile",
+    "section": "Datos",
+    "text": "Datos\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteNota metodológica\n\n\n\n\n\n\nFuente: Encuesta CASEN (Ministerio de Desarrollo Social y Familia), microdatos públicos 2013, 2015, 2017 y 2024.\nDiseño: survey::svydesign con estratos (varstrat), conglomerados (varunit) y factor de expansión regional (expr); lonely.psu = \"adjust\". IC 95%.\nPobreza: metodología nueva (2013 usa pobreza_mn). Incluye pobreza extrema y no extrema.\nIngresos: mediana del ingreso per cápita del hogar (cuantiles con svyquantile); pesos corrientes de cada año (no deflactados).\nÑuble existe como región desde 2018: en 2013–2017 sus datos están dentro de Biobío.\nCSV agregados y código en el repositorio."
   },
   {
     "objectID": "index.html",
@@ -54,6 +124,34 @@
     "title": "\nJoaquín Valenzuela Pastén ·\n",
     "section": "Líneas de interés",
     "text": "Líneas de interés\n\nSeguridad Pública y Crimen\nEn particular, determinantes del comportamiento delictivo, gobernanza criminal y estrategias de prevención del delito. Criminología\n\n\nMétodos cuantitativos\nEspecialmente métodos de inferencia causal, como Regresiones Discontinuas, Matching y Diferencias en Diferencias. Métodos\n\n\nMétodos computacionales en Ciencias Sociales\nManipulación de encuestas complejas, visualización y comunicación de resultados de forma reproducible. Aplicación de Machine Learning, Análisis de Redes Sociales (SNA), extracción automatizada de datos (Web Scraping en páginas estáticas y dinámicas) y análisis computacional de texto y discurso (estructurado y no estructurado) empleando Inteligencia Artificial (modelos ASR y LLMs). Métodos\n\n\n\n¿Quieres ver en qué estoy trabajando? Pasa por la sección de visualizadores o revisa mi CV."
+  },
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Mi CV actualizado. Puedes verlo aquí mismo o descargarlo en PDF.\n\n⬇ Descargar CV (PDF)\n\n\n\nTu navegador no puede mostrar PDFs. &lt;a href=\"files/cv.pdf\"&gt;Descárgalo aquí&lt;/a&gt;."
+  },
+  {
+    "objectID": "lecturas.html",
+    "href": "lecturas.html",
+    "title": "Lecturas",
+    "section": "",
+    "text": "Una biblioteca viva de textos, papers y recursos que me interesan, sobre desigualdad, élites, métodos y ciencias sociales computacionales."
+  },
+  {
+    "objectID": "lecturas.html#carpeta-compartida",
+    "href": "lecturas.html#carpeta-compartida",
+    "title": "Lecturas",
+    "section": "Carpeta compartida",
+    "text": "Carpeta compartida\nPróximamente publicaré aquí una carpeta compartida con literatura sobre desigualdad, élites y métodos.\n\n\n\n\n\n\nNoteCómo embeber tu carpeta de Drive\n\n\n\n\n\n\nEn Google Drive, comparte la carpeta como “Cualquier persona con el enlace”.\nCopia el ID de la URL: drive.google.com/drive/folders/ESTE_ID.\nPégalo arriba reemplazando ID_DE_TU_CARPETA.\n\n\nPor seguridad, comparte solo material que tengas permitido difundir."
+  },
+  {
+    "objectID": "lecturas.html#lecturas-destacadas",
+    "href": "lecturas.html#lecturas-destacadas",
+    "title": "Lecturas",
+    "section": "Lecturas destacadas",
+    "text": "Lecturas destacadas\n\nMétodos\naca pondre algunos que me gusten mucho. métodos\n\n:::\n\n\n\n\n\n\nTip\n\n\n\nPuedes convertir esta sección en un listado bibliográfico automático con un archivo .bib y nocite, o transformarla en un blog de reseñas. Ver ideas en el README."
   },
   {
     "objectID": "proyectos/ejemplo-desigualdad.html",
@@ -89,5 +187,40 @@
     "title": "Desigualdad regional — visualizador de ejemplo",
     "section": "Mapa",
     "text": "Mapa\n\n\n\n\n\n\n\nDatos simulados solo con fines de demostración. La estructura del código (gráficos, tabla y mapa) es directamente reutilizable con bases reales."
+  },
+  {
+    "objectID": "proyectos/territorio-cruzado.html",
+    "href": "proyectos/territorio-cruzado.html",
+    "title": "Pobreza, crimen y denuncia: el cruce territorial",
+    "section": "",
+    "text": "NoteLa pregunta\n\n\n\n¿Las regiones más pobres son también las más victimizadas? ¿Y se denuncia menos donde hay menos recursos? Este cruce une CASEN 2024 (pobreza e ingresos) con ENUSC 2024 (victimización, percepción y denuncia), ambas estimadas con su diseño muestral complejo."
+  },
+  {
+    "objectID": "proyectos/territorio-cruzado.html#pobreza-victimización",
+    "href": "proyectos/territorio-cruzado.html#pobreza-victimización",
+    "title": "Pobreza, crimen y denuncia: el cruce territorial",
+    "section": "Pobreza × victimización",
+    "text": "Pobreza × victimización\n\n\n\n\n\n\n\nLa relación entre pobreza y victimización regional es débil (r = 0.25): la victimización se concentra en regiones urbanas y de mayores ingresos —donde hay más oportunidades de delito— y no necesariamente en las más pobres."
+  },
+  {
+    "objectID": "proyectos/territorio-cruzado.html#dónde-queda-más-delito-sin-denunciar",
+    "href": "proyectos/territorio-cruzado.html#dónde-queda-más-delito-sin-denunciar",
+    "title": "Pobreza, crimen y denuncia: el cruce territorial",
+    "section": "¿Dónde queda más delito sin denunciar?",
+    "text": "¿Dónde queda más delito sin denunciar?"
+  },
+  {
+    "objectID": "proyectos/territorio-cruzado.html#los-dos-mapas",
+    "href": "proyectos/territorio-cruzado.html#los-dos-mapas",
+    "title": "Pobreza, crimen y denuncia: el cruce territorial",
+    "section": "Los dos mapas",
+    "text": "Los dos mapas\n\n\n\n\n\n\nEl mismo país, dos geografías: la de la pobreza y la de la victimización."
+  },
+  {
+    "objectID": "proyectos/territorio-cruzado.html#la-tabla-completa",
+    "href": "proyectos/territorio-cruzado.html#la-tabla-completa",
+    "title": "Pobreza, crimen y denuncia: el cruce territorial",
+    "section": "La tabla completa",
+    "text": "La tabla completa\n\n\nWarning: There was 1 warning in `transmute()`.\nℹ In argument: `Mediana ypc ($) = format(round(mediana_ypc), big.mark = \".\")`.\nCaused by warning in `prettyNum()`:\n! 'big.mark' and 'decimal.mark' are both '.', which could be confusing\n\n\n\n\n\n\n\n\n\n\n\n\n\nWarningAdvertencias metodológicas (importantes)\n\n\n\n\n\n\nEsto es un análisis ecológico: correlaciones a nivel de región no implican relaciones a nivel de personas u hogares (falacia ecológica).\nLa cifra negra regional del robo con violencia se estima con n pequeños en varias regiones; los IC son anchos.\nAmbas encuestas son representativas regionales y se estimaron con su diseño complejo (estratos + conglomerados + factores).\nCorrelaciones de Pearson simples, sin ponderar por tamaño poblacional regional."
   }
 ]
