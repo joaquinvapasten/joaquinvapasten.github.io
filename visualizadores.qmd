@@ -11,6 +11,13 @@ se explora directamente en el navegador.
 ::: {.card-grid}
 
 [
+### 🧭 Explorador de datos
+Estilo V-Dem: tú eliges indicador, regiones, años y tipo de gráfico — líneas, radar,
+dispersión, mapa, heatmap, ranking y más. 21 indicadores ENUSC × CASEN.
+<span class="tag">interactivo · arma tu gráfico</span>
+]{.vcard onclick="window.location='proyectos/explorador.html'" style="cursor:pointer;"}
+
+[
 ### ENUSC: denuncia y cifra negra
 Victimización 2008–2024, tasa de denuncia por delito, motivos para no denunciar y
 brechas regionales. El corazón de mi investigación.

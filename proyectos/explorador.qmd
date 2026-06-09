@@ -1,0 +1,465 @@
+---
+title: "Explorador de datos"
+subtitle: "Arma tu propio gráfico: ENUSC × CASEN · 21 indicadores · 16 regiones · 2008–2024"
+toc: false
+---
+
+```{=html}
+<style>
+/* inputs del explorador en tema oscuro */
+.cell form, .cell form * { color: #e7e9ee !important; }
+.cell select, .cell input[type="number"], .cell input[type="text"] {
+  background: #14213d !important; color: #e7e9ee !important;
+  border: 1px solid #1b263b !important; border-radius: 8px; padding: .35rem .5rem;
+}
+.cell select[multiple] { min-height: 150px; }
+.cell label { font-weight: 600; }
+.cell form { margin-bottom: .4rem; }
+.panel-tabset .nav-link { font-weight: 600; }
+</style>
+```
+
+Inspirado en las [V-Dem Graphing Tools](https://v-dem.net/graphing/graphing-tools/): elige la
+herramienta en las pestañas, selecciona indicadores, regiones y años, y el gráfico se arma
+solo. Todos los datos provienen de mis estimaciones con **diseño muestral complejo** sobre
+microdatos de ENUSC (INE) y CASEN (MDSF).
+
+```{ojs}
+//| echo: false
+datos = FileAttachment("../data/explorador.csv").csv({typed: true})
+
+meta = {
+  const m = new Map();
+  for (const d of datos) {
+    if (!m.has(d.indicador)) m.set(d.indicador, {
+      id: d.indicador, nombre: d.nombre, unidad: d.unidad,
+      fuente: d.fuente, cobertura: d.cobertura, anios: new Set(), aniosReg: new Set()
+    });
+    const e = m.get(d.indicador);
+    e.anios.add(d.anio);
+    if (d.region > 0) e.aniosReg.add(d.anio);
+  }
+  return m;
+}
+
+indsTodos = [...meta.keys()].sort((a, b) => meta.get(a).nombre.localeCompare(meta.get(b).nombre))
+indsReg = indsTodos.filter(k => meta.get(k).cobertura === "regional")
+
+ordenGeo = [15, 1, 2, 3, 4, 5, 13, 6, 7, 16, 8, 9, 14, 10, 11, 12]
+regionesGeo = {
+  const nom = new Map(datos.filter(d => d.region > 0).map(d => [d.region, d.region_nombre]));
+  return ordenGeo.filter(c => nom.has(c)).map(c => nom.get(c));
+}
+entidades = ["Nacional", ...regionesGeo]
+
+paleta = ["#e5383b","#5dade2","#f4d35e","#9b5de5","#52b788","#f48c06","#ff7096",
+          "#90e0ef","#b5e48c","#c77dff","#ffb3b5","#a9d6e5","#ffd166","#80ffdb",
+          "#e07a5f","#adb5bd","#f9844a"]
+
+fmtVal = (v, u) => v == null ? "s/d"
+  : u === "$" ? "$" + d3.format(",.0f")(v).replaceAll(",", ".")
+  : u === "veces" ? d3.format(".2f")(v) + "×"
+  : d3.format(".1f")(v) + "%"
+
+nomCorto = id => meta.get(id).nombre.replace(/ \((%|\$|veces)\)$/, "")
+etiq = id => `${meta.get(id).nombre} · ${meta.get(id).fuente}`
+
+filtra = (ind, soloReg = false) =>
+  datos.filter(d => d.indicador === ind && (soloReg ? d.region > 0 : true))
+
+normaliza = filas => {
+  const ext = d3.extent(filas, d => d.est);
+  return filas.map(d => ({...d, norm: ext[1] === ext[0] ? 50 : (d.est - ext[0]) / (ext[1] - ext[0]) * 100}));
+}
+
+temaPlot = {
+  return {style: {background: "transparent", color: "#e7e9ee", fontSize: "13px",
+                  fontFamily: "IBM Plex Sans, sans-serif"}}
+}
+
+Plotly = require("https://cdn.plot.ly/plotly-2.35.2.min.js")
+geoRegiones = FileAttachment("../data/regiones.json").json()
+
+layoutOscuro = extra => Object.assign({
+  paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)",
+  font: {family: "IBM Plex Sans, sans-serif", color: "#e7e9ee"},
+  margin: {t: 30, l: 40, r: 20, b: 40}
+}, extra)
+```
+
+::: {.panel-tabset}
+
+## 📈 Variable
+
+Un indicador, varias regiones (o Nacional), a lo largo del tiempo.
+
+```{ojs}
+//| echo: false
+viewof vg_ind = Inputs.select(indsTodos, {label: "Indicador", format: etiq, value: "enusc_vh_dmcs"})
+viewof vg_ent = Inputs.select(
+  meta.get(vg_ind).cobertura === "regional" ? entidades : ["Nacional"],
+  {label: "Regiones (Ctrl+clic para varias)", multiple: true, value: ["Nacional"], size: 8})
+```
+
+```{ojs}
+//| echo: false
+{
+  const sel = vg_ent.length ? vg_ent : ["Nacional"];
+  const filas = datos.filter(d => d.indicador === vg_ind && sel.includes(d.region_nombre));
+  const u = meta.get(vg_ind).unidad;
+  const banda = sel.length === 1 && filas.some(d => d.li != null);
+  return Plot.plot({
+    ...temaPlot, width, height: 420,
+    x: {label: "Año", tickFormat: "d"},
+    y: {label: meta.get(vg_ind).nombre, grid: true, nice: true,
+        tickFormat: u === "$" ? "~s" : undefined},
+    color: {legend: sel.length > 1, range: paleta, domain: sel},
+    marks: [
+      banda ? Plot.areaY(filas.filter(d => d.li != null),
+        {x: "anio", y1: "li", y2: "ls", fill: "#e5383b", fillOpacity: .15}) : null,
+      Plot.line(filas, {x: "anio", y: "est", stroke: "region_nombre", strokeWidth: 2.5,
+                        curve: "monotone-x"}),
+      Plot.dot(filas, {x: "anio", y: "est", fill: "region_nombre", r: 4}),
+      Plot.tip(filas, Plot.pointer({x: "anio", y: "est",
+        title: d => `${d.region_nombre} · ${d.anio}\n${nomCorto(vg_ind)}: ${fmtVal(d.est, u)}`}))
+    ]
+  });
+}
+```
+
+## 📊 Región
+
+Una región, varios indicadores. Con escalas distintas conviene normalizar (0–100 = mín–máx de cada serie).
+
+```{ojs}
+//| echo: false
+viewof rg_ent = Inputs.select(entidades, {label: "Región", value: "Nacional"})
+viewof rg_inds = Inputs.select(
+  indsTodos.filter(k => rg_ent === "Nacional" || meta.get(k).cobertura === "regional"),
+  {label: "Indicadores (Ctrl+clic)", multiple: true, format: etiq,
+   value: ["enusc_vh_dmcs", "enusc_pad"], size: 9})
+viewof rg_norm = Inputs.toggle({label: "Normalizar 0–100", value: true})
+```
+
+```{ojs}
+//| echo: false
+{
+  const sel = rg_inds.length ? rg_inds : ["enusc_vh_dmcs"];
+  let filas = [];
+  for (const k of sel) {
+    let f = datos.filter(d => d.indicador === k && d.region_nombre === rg_ent);
+    if (rg_norm) f = normaliza(f);
+    filas = filas.concat(f.map(d => ({...d, serie: nomCorto(k),
+                                      valor: rg_norm ? d.norm : d.est})));
+  }
+  return Plot.plot({
+    ...temaPlot, width, height: 440,
+    x: {label: "Año", tickFormat: "d"},
+    y: {label: rg_norm ? "Índice 0–100 (mín–máx de cada serie)" : "Valor", grid: true},
+    color: {legend: true, range: paleta},
+    marks: [
+      Plot.line(filas, {x: "anio", y: "valor", stroke: "serie", strokeWidth: 2.5, curve: "monotone-x"}),
+      Plot.dot(filas, {x: "anio", y: "valor", fill: "serie", r: 4}),
+      Plot.tip(filas, Plot.pointer({x: "anio", y: "valor",
+        title: d => `${d.serie} · ${d.anio}\nValor real: ${fmtVal(d.est, d.unidad)}`}))
+    ]
+  });
+}
+```
+
+## 🕸️ Radar
+
+Compara el perfil de una región en varios indicadores, o varias regiones en un indicador.
+Valores normalizados 0–100 entre regiones (en el año elegido).
+
+```{ojs}
+//| echo: false
+viewof rd_modo = Inputs.radio(["Una región, varios indicadores", "Un indicador, varias regiones"],
+                              {label: "Modo", value: "Una región, varios indicadores"})
+```
+
+```{ojs}
+//| echo: false
+viewof rd_cfg = {
+  if (rd_modo === "Una región, varios indicadores") {
+    const ent = Inputs.select(regionesGeo, {label: "Región", value: "Metropolitana"});
+    const inds = Inputs.select(indsReg, {label: "Indicadores (3+)", multiple: true, format: etiq,
+      value: ["enusc_vh_dmcs","enusc_pad","enusc_rvi","casen_pobreza_comp","casen_mediana_ypc"], size: 8});
+    const nacional = Inputs.toggle({label: "Superponer Nacional", value: true});
+    const form = Inputs.form({ent, inds, nacional});
+    return form;
+  } else {
+    const ind = Inputs.select(indsReg, {label: "Indicador", format: etiq, value: "enusc_vh_dmcs"});
+    const ents = Inputs.select(regionesGeo, {label: "Regiones (3+)", multiple: true,
+      value: ["Metropolitana","Valparaíso","Biobío","La Araucanía"], size: 8});
+    return Inputs.form({ind, ents});
+  }
+}
+```
+
+```{ojs}
+//| echo: false
+{
+  const traces = [];
+  if (rd_modo === "Una región, varios indicadores") {
+    const inds = (rd_cfg.inds?.length >= 3 ? rd_cfg.inds : indsReg.slice(0, 3));
+    const ejes = [], vR = [], vN = [], hovR = [], hovN = [];
+    for (const k of inds) {
+      const anio = Math.max(...meta.get(k).aniosReg);
+      const filas = normaliza(filtra(k, true).filter(d => d.anio === anio));
+      const fr = filas.find(d => d.region_nombre === rd_cfg.ent);
+      const fn = datos.find(d => d.indicador === k && d.region === 0 && d.anio === anio);
+      ejes.push(`${nomCorto(k)} (${anio})`);
+      vR.push(fr ? fr.norm : null);
+      hovR.push(fr ? fmtVal(fr.est, fr.unidad) : "s/d");
+      if (rd_cfg.nacional && fn) {
+        const ext = d3.extent(filas, d => d.est);
+        vN.push(ext[1] === ext[0] ? 50 : (fn.est - ext[0]) / (ext[1] - ext[0]) * 100);
+        hovN.push(fmtVal(fn.est, fn.unidad));
+      } else { vN.push(null); hovN.push("s/d"); }
+    }
+    traces.push({type: "scatterpolar", r: [...vR, vR[0]], theta: [...ejes, ejes[0]],
+      fill: "toself", name: rd_cfg.ent, line: {color: "#e5383b"},
+      fillcolor: "rgba(229,56,59,.25)", customdata: [...hovR, hovR[0]],
+      hovertemplate: "%{theta}<br><b>" + rd_cfg.ent + "</b>: %{customdata}<extra></extra>"});
+    if (rd_cfg.nacional) traces.push({type: "scatterpolar", r: [...vN, vN[0]],
+      theta: [...ejes, ejes[0]], name: "Nacional", line: {color: "#9aa3b5", dash: "dot"},
+      customdata: [...hovN, hovN[0]],
+      hovertemplate: "%{theta}<br><b>Nacional</b>: %{customdata}<extra></extra>"});
+  } else {
+    const k = rd_cfg.ind, anio = Math.max(...meta.get(k).aniosReg);
+    const filas = normaliza(filtra(k, true).filter(d => d.anio === anio));
+    const ents = (rd_cfg.ents?.length >= 3 ? rd_cfg.ents : regionesGeo.slice(0, 4));
+    ents.forEach((e, i) => {
+      const f = filas.find(d => d.region_nombre === e);
+      // un radar por región no tiene sentido con 1 eje: usamos polar de barras
+    });
+    const r = ents.map(e => { const f = filas.find(d => d.region_nombre === e); return f ? f.norm : 0; });
+    const hov = ents.map(e => { const f = filas.find(d => d.region_nombre === e); return f ? fmtVal(f.est, f.unidad) : "s/d"; });
+    traces.push({type: "scatterpolar", r: [...r, r[0]], theta: [...ents, ents[0]],
+      fill: "toself", name: nomCorto(k), line: {color: "#e5383b"},
+      fillcolor: "rgba(229,56,59,.25)", customdata: [...hov, hov[0]],
+      hovertemplate: "<b>%{theta}</b><br>" + nomCorto(k) + ` (${anio})` + ": %{customdata}<extra></extra>"});
+  }
+  const div = document.createElement("div");
+  await Plotly.newPlot(div, traces, layoutOscuro({
+    height: 520, showlegend: true, legend: {orientation: "h", y: -0.08},
+    polar: {bgcolor: "rgba(20,33,61,.35)",
+            radialaxis: {range: [0, 100], gridcolor: "rgba(155,163,181,.2)", tickfont: {size: 10}},
+            angularaxis: {gridcolor: "rgba(155,163,181,.2)"}}
+  }), {displayModeBar: false, responsive: true});
+  return div;
+}
+```
+
+## ⚔️ Dispersión XY
+
+Dos indicadores cruzados a nivel regional. Cada punto es una región.
+
+```{ojs}
+//| echo: false
+viewof xy_x = Inputs.select(indsReg, {label: "Eje X", format: etiq, value: "casen_pobreza_n24"})
+viewof xy_y = Inputs.select(indsReg, {label: "Eje Y", format: etiq, value: "enusc_vh_dmcs"})
+```
+
+```{ojs}
+//| echo: false
+{
+  const ax = [...meta.get(xy_x).aniosReg], ay = [...meta.get(xy_y).aniosReg];
+  const comunes = ax.filter(a => ay.includes(a)).sort();
+  if (!comunes.length) {
+    const aX = Math.max(...ax), aY = Math.max(...ay);
+    var filasX = filtra(xy_x, true).filter(d => d.anio === aX);
+    var filasY = filtra(xy_y, true).filter(d => d.anio === aY);
+    var titulo = `X: ${aX} · Y: ${aY} (no comparten año)`;
+  } else {
+    const a = Math.max(...comunes);
+    var filasX = filtra(xy_x, true).filter(d => d.anio === a);
+    var filasY = filtra(xy_y, true).filter(d => d.anio === a);
+    var titulo = `Año ${a}`;
+  }
+  const pares = filasX.map(d => {
+    const fy = filasY.find(e => e.region === d.region);
+    return fy ? {region_nombre: d.region_nombre, x: d.est, y: fy.est,
+                 ux: d.unidad, uy: fy.unidad} : null;
+  }).filter(d => d);
+  const r = (() => {
+    const mx = d3.mean(pares, d => d.x), my = d3.mean(pares, d => d.y);
+    const num = d3.sum(pares, d => (d.x - mx) * (d.y - my));
+    const den = Math.sqrt(d3.sum(pares, d => (d.x - mx) ** 2) * d3.sum(pares, d => (d.y - my) ** 2));
+    return den ? num / den : NaN;
+  })();
+  return Plot.plot({
+    ...temaPlot, width, height: 480,
+    x: {label: nomCorto(xy_x), grid: true, nice: true, tickFormat: meta.get(xy_x).unidad === "$" ? "~s" : undefined},
+    y: {label: nomCorto(xy_y), grid: true, nice: true, tickFormat: meta.get(xy_y).unidad === "$" ? "~s" : undefined},
+    marks: [
+      Plot.linearRegressionY(pares, {x: "x", y: "y", stroke: "#9aa3b5", strokeDasharray: "4 4", ci: 0}),
+      Plot.dot(pares, {x: "x", y: "y", r: 7, fill: "#e5383b", fillOpacity: .85,
+                       stroke: "#07090f"}),
+      Plot.text(pares, {x: "x", y: "y", text: "region_nombre", dy: -11,
+                        fill: "#9aa3b5", fontSize: 10}),
+      Plot.text([{x: 0, y: 0}], {frameAnchor: "top-right", dx: -8, dy: 8, fill: "#9aa3b5",
+                 text: () => `${titulo} · r = ${d3.format(".2f")(r)} · correlación ecológica (regiones), no individual`})
+    ]
+  });
+}
+```
+
+## 🗺️ Mapa
+
+```{ojs}
+//| echo: false
+viewof mp_ind = Inputs.select(indsReg, {label: "Indicador", format: etiq, value: "casen_pobreza_n24"})
+viewof mp_anio = Inputs.select([...meta.get(mp_ind).aniosReg].sort().reverse(),
+                               {label: "Año", value: Math.max(...meta.get(mp_ind).aniosReg),
+                                format: d => String(d)})
+```
+
+```{ojs}
+//| echo: false
+{
+  const filas = filtra(mp_ind, true).filter(d => d.anio === mp_anio);
+  const u = meta.get(mp_ind).unidad;
+  const div = document.createElement("div");
+  await Plotly.newPlot(div, [{
+    type: "choropleth", geojson: geoRegiones,
+    locations: filas.map(d => d.region), z: filas.map(d => d.est),
+    featureidkey: "properties.codregion",
+    colorscale: [[0, "#14213d"], [1, "#e5383b"]],
+    marker: {line: {color: "#07090f", width: .5}},
+    text: filas.map(d => d.region_nombre),
+    customdata: filas.map(d => fmtVal(d.est, u)),
+    hovertemplate: "<b>%{text}</b><br>" + nomCorto(mp_ind) + ": %{customdata}<extra></extra>",
+    colorbar: {title: u, outlinecolor: "transparent", tickfont: {color: "#e7e9ee"}}
+  }], layoutOscuro({
+    height: 680,
+    geo: {fitbounds: "locations", visible: false, bgcolor: "rgba(0,0,0,0)",
+          projection: {type: "mercator"}}
+  }), {displayModeBar: false, responsive: true});
+  return div;
+}
+```
+
+## 🔥 Heatmap
+
+Región × año para un indicador (orden norte → sur).
+
+```{ojs}
+//| echo: false
+viewof hm_ind = Inputs.select(indsReg, {label: "Indicador", format: etiq, value: "enusc_vh_dmcs"})
+```
+
+```{ojs}
+//| echo: false
+{
+  const filas = filtra(hm_ind, true);
+  const u = meta.get(hm_ind).unidad;
+  return Plot.plot({
+    ...temaPlot, width, height: 480, marginLeft: 135, marginTop: 12,
+    x: {label: "Año", tickFormat: "d"},
+    y: {label: null, domain: regionesGeo},
+    color: {scheme: "reds", legend: true, label: meta.get(hm_ind).nombre},
+    marks: [
+      Plot.cell(filas, {x: "anio", y: "region_nombre", fill: "est", inset: .5, rx: 3}),
+      Plot.tip(filas, Plot.pointer({x: "anio", y: "region_nombre",
+        title: d => `${d.region_nombre} · ${d.anio}\n${fmtVal(d.est, u)}`}))
+    ]
+  });
+}
+```
+
+## ↔️ Entre años
+
+Cambio de un indicador entre dos años, por región.
+
+```{ojs}
+//| echo: false
+viewof ca_ind = Inputs.select(
+  indsReg.filter(k => meta.get(k).aniosReg.size > 1),
+  {label: "Indicador", format: etiq, value: "casen_pobreza_comp"})
+viewof ca_anios = {
+  const as = [...meta.get(ca_ind).aniosReg].sort();
+  const a = Inputs.select(as, {label: "Año inicial", value: as[0], format: d => String(d)});
+  const b = Inputs.select(as, {label: "Año final", value: as[as.length - 1], format: d => String(d)});
+  return Inputs.form({a, b});
+}
+```
+
+```{ojs}
+//| echo: false
+{
+  const u = meta.get(ca_ind).unidad;
+  const fA = filtra(ca_ind, true).filter(d => d.anio === ca_anios.a);
+  const fB = filtra(ca_ind, true).filter(d => d.anio === ca_anios.b);
+  const pares = fB.map(b => {
+    const a = fA.find(d => d.region === b.region);
+    return a ? {region_nombre: b.region_nombre, vA: a.est, vB: b.est} : null;
+  }).filter(d => d).sort((p, q) => q.vB - p.vB);
+  return Plot.plot({
+    ...temaPlot, width, height: 480, marginLeft: 130,
+    x: {label: meta.get(ca_ind).nombre, grid: true, nice: true, tickFormat: u === "$" ? "~s" : undefined},
+    y: {label: null, domain: pares.map(d => d.region_nombre)},
+    marks: [
+      Plot.link(pares, {x1: "vA", x2: "vB", y: "region_nombre",
+                        stroke: "#9aa3b5", strokeOpacity: .5, strokeWidth: 2}),
+      Plot.dot(pares, {x: "vA", y: "region_nombre", r: 5, fill: "#9aa3b5"}),
+      Plot.dot(pares, {x: "vB", y: "region_nombre", r: 6, fill: "#e5383b"}),
+      Plot.tip(pares, Plot.pointer({x: "vB", y: "region_nombre",
+        title: d => `${d.region_nombre}\n${ca_anios.a}: ${fmtVal(d.vA, u)} → ${ca_anios.b}: ${fmtVal(d.vB, u)}`}))
+    ]
+  });
+}
+```
+
+Punto gris = año inicial · punto rojo = año final.
+
+## 🏁 Ranking
+
+Regiones ordenadas en un indicador y año, con su intervalo de confianza.
+
+```{ojs}
+//| echo: false
+viewof rk_ind = Inputs.select(indsReg, {label: "Indicador", format: etiq, value: "enusc_vh_dmcs"})
+viewof rk_anio = Inputs.select([...meta.get(rk_ind).aniosReg].sort().reverse(),
+                               {label: "Año", value: Math.max(...meta.get(rk_ind).aniosReg),
+                                format: d => String(d)})
+```
+
+```{ojs}
+//| echo: false
+{
+  const u = meta.get(rk_ind).unidad;
+  const filas = filtra(rk_ind, true).filter(d => d.anio === rk_anio)
+    .sort((a, b) => b.est - a.est);
+  const nacional = datos.find(d => d.indicador === rk_ind && d.region === 0 && d.anio === rk_anio);
+  return Plot.plot({
+    ...temaPlot, width, height: 480, marginLeft: 130,
+    x: {label: meta.get(rk_ind).nombre, grid: true, nice: true, tickFormat: u === "$" ? "~s" : undefined},
+    y: {label: null, domain: filas.map(d => d.region_nombre)},
+    marks: [
+      Plot.barX(filas, {x: "est", y: "region_nombre", fill: "#ba181b", fillOpacity: .75, rx: 3}),
+      Plot.link(filas.filter(d => d.li != null),
+                {x1: "li", x2: "ls", y: "region_nombre", stroke: "#e7e9ee", strokeWidth: 1.5}),
+      nacional ? Plot.ruleX([nacional.est], {stroke: "#f4d35e", strokeDasharray: "5 4", strokeWidth: 2}) : null,
+      Plot.tip(filas, Plot.pointer({x: "est", y: "region_nombre",
+        title: d => `${d.region_nombre} · ${rk_anio}\n${fmtVal(d.est, u)}` +
+                    (d.li != null ? `\nIC95: [${fmtVal(d.li, u)} – ${fmtVal(d.ls, u)}]` : "")}))
+    ]
+  });
+}
+```
+
+La línea amarilla punteada marca el valor **nacional**.
+
+:::
+
+---
+
+::: {.callout-note collapse="true"}
+## Cómo funciona y de dónde salen los datos
+- Los **21 indicadores** provienen de mis estimaciones sobre microdatos de la **ENUSC** (serie interanual 2008–2024 y módulo de denuncia 2024, INE) y de la **CASEN** (2013–2024, MDSF), todas con diseño muestral complejo (`survey` en R: estratos, conglomerados y factores de expansión) e IC al 95%.
+- La pobreza aparece en sus **dos metodologías** (serie comparable 2013 y canasta actualizada 2024) como indicadores separados.
+- Esta página no usa servidor: es **Observable JS** corriendo en tu navegador sobre un CSV agregado de ~1.000 filas ([verlo en el repo](https://github.com/joaquinvapasten/joaquinvapasten.github.io/blob/main/data/explorador.csv)).
+- Indicadores de denuncia: solo 2024 (los delitos con muestra regional suficiente). La serie regional ENUSC parte en 2018 (codificación de 16 regiones); la cobertura de cada herramienta se ajusta sola.
+:::

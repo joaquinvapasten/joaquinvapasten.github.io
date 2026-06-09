@@ -23,6 +23,8 @@ website:
         href: cv.qmd
       - text: "Visualizadores"
         href: visualizadores.qmd
+      - text: "Explorador"
+        href: proyectos/explorador.qmd
       - text: "Lecturas"
         href: lecturas.qmd
     right:
