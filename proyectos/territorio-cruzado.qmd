@@ -24,7 +24,8 @@ lay_dark <- function(p, ...) layout(p,
   margin = list(t = 40), ...)
 
 # --- armar el cruce regional 2024 ---
-pob <- casen |> filter(anio == 2024, nivel == "regional", indicador == "pobreza") |>
+pob <- casen |> filter(anio == 2024, nivel == "regional", indicador == "pobreza",
+                       metodologia == "nueva_2024") |>
   select(region, region_nombre, pobreza = est)
 ypc <- decil |> filter(anio == 2024, nivel == "regional") |> select(region, mediana_ypc = p50)
 vict <- enusc |> filter(anio == 2024, indicador == "vh_dmcs") |>
@@ -69,7 +70,7 @@ plot_ly() |>
             hovertemplate = paste0("<b>%{text}</b><br>Pobreza: %{x:.1f}%<br>",
                                    "Hogares víctimas DMCS: %{y:.1f}%<br>",
                                    "Mediana ypc: $%{customdata:,}<extra></extra>")) |>
-  lay_dark(xaxis = list(title = "Pobreza por ingresos 2024 (%)", gridcolor = PAL$grid),
+  lay_dark(xaxis = list(title = "Pobreza por ingresos 2024, metodología 2024 (%)", gridcolor = PAL$grid),
            yaxis = list(title = "Hogares víctimas DMCS 2024 (%)", gridcolor = PAL$grid),
            height = 520,
            annotations = list(list(x = 1, y = 0, xref = "paper", yref = "paper",

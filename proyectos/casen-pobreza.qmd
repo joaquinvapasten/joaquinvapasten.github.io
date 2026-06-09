@@ -24,11 +24,14 @@ clp <- function(x) paste0("$", format(round(x), big.mark = "."))
 ```
 
 ::: {.callout-note}
-## Sobre estas estimaciones
-Calculadas desde los **microdatos CASEN** con el diseño complejo de la encuesta
-(`varstrat` + `varunit` + factor regional `expr`) usando `survey` en R; IC al 95%.
-Serie con **metodología nueva de pobreza por ingresos** (comparable desde 2013).
-La base CASEN 2022 local estaba dañada, por lo que la serie usa 2013 · 2015 · 2017 · 2024.
+## Sobre estas estimaciones (y las *dos* líneas de pobreza)
+Calculadas desde los **microdatos CASEN** (2013 · 2015 · 2017 · 2022 · 2024) con el diseño
+complejo de la encuesta (`varstrat` + `varunit` + `expr`) usando `survey` en R; IC al 95%.
+
+En 2024 el MDSF **actualizó la metodología** de pobreza por ingresos (nueva canasta y
+líneas más exigentes), lo que *sube el nivel* de pobreza medido. Aquí muestro ambas:
+la **serie comparable** (metodología 2013, disponible para todos los años) y la
+**metodología 2024** (disponible para 2022 y 2024).
 :::
 
 ## La caída (y el piso) de la pobreza por ingresos
@@ -37,30 +40,50 @@ La base CASEN 2022 local estaba dañada, por lo que la serie usa 2013 · 2015 ·
 #| echo: false
 #| warning: false
 pn <- ind |> filter(nivel == "nacional") |> arrange(anio)
-pt <- pn |> filter(indicador == "pobreza"); pe <- pn |> filter(indicador == "pobreza_extrema")
+pt <- pn |> filter(indicador == "pobreza", metodologia == "comparable_2013")
+pe <- pn |> filter(indicador == "pobreza_extrema", metodologia == "comparable_2013")
+pnu <- pn |> filter(indicador == "pobreza", metodologia == "nueva_2024")
 plot_ly() |>
   add_ribbons(data = pt, x = ~anio, ymin = ~li, ymax = ~ls, fillcolor = "rgba(229,56,59,.18)",
               line = list(color = "transparent"), showlegend = FALSE, hoverinfo = "skip") |>
   add_trace(data = pt, x = ~anio, y = ~est, type = "scatter", mode = "lines+markers",
-            name = "Pobreza", line = list(color = PAL$red, width = 3), marker = list(size = 9),
-            hovertemplate = "<b>%{x}</b><br>Pobreza: %{y:.1f}%<extra></extra>") |>
+            name = "Pobreza (serie comparable)", line = list(color = PAL$red, width = 3),
+            marker = list(size = 9),
+            hovertemplate = "<b>%{x}</b><br>Pobreza (comparable): %{y:.1f}%<extra></extra>") |>
+  add_trace(data = pnu, x = ~anio, y = ~est, type = "scatter", mode = "lines+markers",
+            name = "Pobreza (metodología 2024)",
+            line = list(color = "#ffb3b5", width = 3, dash = "dash"),
+            marker = list(size = 10, symbol = "diamond", color = "#ffb3b5"),
+            hovertemplate = "<b>%{x}</b><br>Pobreza (met. 2024): %{y:.1f}%<extra></extra>") |>
   add_ribbons(data = pe, x = ~anio, ymin = ~li, ymax = ~ls, fillcolor = "rgba(154,163,181,.15)",
               line = list(color = "transparent"), showlegend = FALSE, hoverinfo = "skip") |>
   add_trace(data = pe, x = ~anio, y = ~est, type = "scatter", mode = "lines+markers",
-            name = "Pobreza extrema", line = list(color = PAL$muted, width = 2, dash = "dot"),
+            name = "Pobreza extrema (comparable)", line = list(color = PAL$muted, width = 2, dash = "dot"),
             marker = list(size = 7, color = PAL$muted),
             hovertemplate = "<b>%{x}</b><br>Pobreza extrema: %{y:.1f}%<extra></extra>") |>
   lay_dark(xaxis = list(title = "", tickvals = unique(pn$anio), gridcolor = PAL$grid),
            yaxis = list(title = "% de la población (IC 95%)", rangemode = "tozero", gridcolor = PAL$grid),
-           legend = list(orientation = "h", y = 1.1), height = 440)
+           legend = list(orientation = "h", y = 1.12), height = 460,
+           annotations = list(list(
+             x = 2022, y = max(pnu$est) + 2.5, showarrow = FALSE,
+             font = list(color = "#ffb3b5", size = 11),
+             text = "La canasta actualizada 2024<br>eleva la línea de pobreza")))
 ```
 
-## El mapa de la pobreza (2024)
+::: {.lead}
+Con la **misma vara** (serie comparable), la pobreza cayó de 14.4% (2013) a 6.5% (2022)
+y 4.9% (2024). La **actualización metodológica 2024** —canasta y líneas más exigentes—
+triplica el nivel medido: no es que la pobreza "subiera", es que **cambió la forma de
+medirla**.
+:::
+
+## El mapa de la pobreza (2024, metodología nueva)
 
 ```{r mapa-pobreza}
 #| echo: false
 #| warning: false
-pr24 <- ind |> filter(nivel == "regional", anio == 2024, indicador == "pobreza")
+pr24 <- ind |> filter(nivel == "regional", anio == 2024, indicador == "pobreza",
+                      metodologia == "nueva_2024")
 plot_ly() |>
   add_trace(type = "choropleth", geojson = gj, locations = pr24$region,
             z = pr24$est, featureidkey = "properties.codregion",
@@ -75,12 +98,13 @@ plot_ly() |>
          font = list(color = "#e7e9ee"), height = 700, margin = list(t = 10, b = 10))
 ```
 
-## ¿Qué regiones avanzaron más? 2013 → 2024
+## ¿Qué regiones avanzaron más? 2013 → 2024 (serie comparable)
 
 ```{r dumbbell}
 #| echo: false
 #| warning: false
-db <- ind |> filter(nivel == "regional", indicador == "pobreza", anio %in% c(2013, 2024)) |>
+db <- ind |> filter(nivel == "regional", indicador == "pobreza", anio %in% c(2013, 2024),
+                    metodologia == "comparable_2013") |>
   select(anio, region_nombre, est) |> pivot_wider(names_from = anio, values_from = est) |>
   rename(p13 = `2013`, p24 = `2024`) |> filter(!is.na(p13), !is.na(p24)) |>
   arrange(p24) |> mutate(region_nombre = factor(region_nombre, levels = region_nombre))
@@ -143,22 +167,24 @@ plot_ly(mr, x = ~p50, y = ~region_nombre, type = "bar", orientation = "h",
 ```{r tabla}
 #| echo: false
 ind |> filter(indicador == "pobreza") |>
-  transmute(Año = anio, Territorio = region_nombre,
+  transmute(Año = anio,
+            Metodología = ifelse(metodologia == "comparable_2013", "Comparable (2013)", "Nueva (2024)"),
+            Territorio = region_nombre,
             `Pobreza (%)` = round(est, 1),
             `IC 95%` = paste0("[", round(li,1), " – ", round(ls,1), "]"),
             n = n) |>
   datatable(rownames = FALSE, filter = "top",
             options = list(pageLength = 10, dom = "ftp"),
-            caption = "CASEN · pobreza por ingresos, metodología nueva")
+            caption = "CASEN · pobreza por ingresos según metodología")
 ```
 
 ---
 
 ::: {.callout-note collapse="true"}
 ## Nota metodológica
-- **Fuente:** Encuesta CASEN (Ministerio de Desarrollo Social y Familia), microdatos públicos 2013, 2015, 2017 y 2024.
+- **Fuente:** Encuesta CASEN (Ministerio de Desarrollo Social y Familia), microdatos públicos 2013, 2015, 2017, 2022 y 2024.
 - **Diseño:** `survey::svydesign` con estratos (`varstrat`), conglomerados (`varunit`) y factor de expansión regional (`expr`); `lonely.psu = "adjust"`. IC 95%.
-- **Pobreza:** metodología nueva (2013 usa `pobreza_mn`). Incluye pobreza extrema y no extrema.
+- **Pobreza:** la **serie comparable** usa la metodología 2013 en todos los años (`pobreza`/`pobreza_mn` en 2013–2017; `pobreza_2013` en las bases re-publicadas 2022/2024). La **metodología 2024** (canasta actualizada, disponible 2022 y 2024) usa la variable `pobreza` de esas bases. El mapa regional usa metodología 2024; el dumbbell 2013→2024, la serie comparable.
 - **Ingresos:** mediana del ingreso per cápita del hogar (cuantiles con `svyquantile`); pesos corrientes de cada año (no deflactados).
 - **Ñuble** existe como región desde 2018: en 2013–2017 sus datos están dentro de Biobío.
 - CSV agregados y código en el [repositorio](https://github.com/joaquinvapasten/joaquinvapasten.github.io).
