@@ -60,28 +60,28 @@
     "href": "proyectos/casen-pobreza.html",
     "title": "CASEN: pobreza e ingresos en Chile",
     "section": "",
-    "text": "NoteSobre estas estimaciones\n\n\n\nCalculadas desde los microdatos CASEN con el diseño complejo de la encuesta (varstrat + varunit + factor regional expr) usando survey en R; IC al 95%. Serie con metodología nueva de pobreza por ingresos (comparable desde 2013). La base CASEN 2022 local estaba dañada, por lo que la serie usa 2013 · 2015 · 2017 · 2024."
+    "text": "NoteSobre estas estimaciones (y las dos líneas de pobreza)\n\n\n\nCalculadas desde los microdatos CASEN (2013 · 2015 · 2017 · 2022 · 2024) con el diseño complejo de la encuesta (varstrat + varunit + expr) usando survey en R; IC al 95%.\nEn 2024 el MDSF actualizó la metodología de pobreza por ingresos (nueva canasta y líneas más exigentes), lo que sube el nivel de pobreza medido. Aquí muestro ambas: la serie comparable (metodología 2013, disponible para todos los años) y la metodología 2024 (disponible para 2022 y 2024)."
   },
   {
     "objectID": "proyectos/casen-pobreza.html#la-caída-y-el-piso-de-la-pobreza-por-ingresos",
     "href": "proyectos/casen-pobreza.html#la-caída-y-el-piso-de-la-pobreza-por-ingresos",
     "title": "CASEN: pobreza e ingresos en Chile",
     "section": "La caída (y el piso) de la pobreza por ingresos",
-    "text": "La caída (y el piso) de la pobreza por ingresos"
+    "text": "La caída (y el piso) de la pobreza por ingresos\n\n\n\n\n\n\n\nCon la misma vara (serie comparable), la pobreza cayó de 14.4% (2013) a 6.5% (2022) y 4.9% (2024). La actualización metodológica 2024 —canasta y líneas más exigentes— triplica el nivel medido: no es que la pobreza “subiera”, es que cambió la forma de medirla."
   },
   {
-    "objectID": "proyectos/casen-pobreza.html#el-mapa-de-la-pobreza-2024",
-    "href": "proyectos/casen-pobreza.html#el-mapa-de-la-pobreza-2024",
+    "objectID": "proyectos/casen-pobreza.html#el-mapa-de-la-pobreza-2024-metodología-nueva",
+    "href": "proyectos/casen-pobreza.html#el-mapa-de-la-pobreza-2024-metodología-nueva",
     "title": "CASEN: pobreza e ingresos en Chile",
-    "section": "El mapa de la pobreza (2024)",
-    "text": "El mapa de la pobreza (2024)"
+    "section": "El mapa de la pobreza (2024, metodología nueva)",
+    "text": "El mapa de la pobreza (2024, metodología nueva)"
   },
   {
-    "objectID": "proyectos/casen-pobreza.html#qué-regiones-avanzaron-más-2013-2024",
-    "href": "proyectos/casen-pobreza.html#qué-regiones-avanzaron-más-2013-2024",
+    "objectID": "proyectos/casen-pobreza.html#qué-regiones-avanzaron-más-2013-2024-serie-comparable",
+    "href": "proyectos/casen-pobreza.html#qué-regiones-avanzaron-más-2013-2024-serie-comparable",
     "title": "CASEN: pobreza e ingresos en Chile",
-    "section": "¿Qué regiones avanzaron más? 2013 → 2024",
-    "text": "¿Qué regiones avanzaron más? 2013 → 2024"
+    "section": "¿Qué regiones avanzaron más? 2013 → 2024 (serie comparable)",
+    "text": "¿Qué regiones avanzaron más? 2013 → 2024 (serie comparable)"
   },
   {
     "objectID": "proyectos/casen-pobreza.html#ingresos-mediana-per-cápita-y-desigualdad-p90p10",
@@ -102,7 +102,7 @@
     "href": "proyectos/casen-pobreza.html#datos",
     "title": "CASEN: pobreza e ingresos en Chile",
     "section": "Datos",
-    "text": "Datos\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteNota metodológica\n\n\n\n\n\n\nFuente: Encuesta CASEN (Ministerio de Desarrollo Social y Familia), microdatos públicos 2013, 2015, 2017 y 2024.\nDiseño: survey::svydesign con estratos (varstrat), conglomerados (varunit) y factor de expansión regional (expr); lonely.psu = \"adjust\". IC 95%.\nPobreza: metodología nueva (2013 usa pobreza_mn). Incluye pobreza extrema y no extrema.\nIngresos: mediana del ingreso per cápita del hogar (cuantiles con svyquantile); pesos corrientes de cada año (no deflactados).\nÑuble existe como región desde 2018: en 2013–2017 sus datos están dentro de Biobío.\nCSV agregados y código en el repositorio."
+    "text": "Datos\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteNota metodológica\n\n\n\n\n\n\nFuente: Encuesta CASEN (Ministerio de Desarrollo Social y Familia), microdatos públicos 2013, 2015, 2017, 2022 y 2024.\nDiseño: survey::svydesign con estratos (varstrat), conglomerados (varunit) y factor de expansión regional (expr); lonely.psu = \"adjust\". IC 95%.\nPobreza: la serie comparable usa la metodología 2013 en todos los años (pobreza/pobreza_mn en 2013–2017; pobreza_2013 en las bases re-publicadas 2022/2024). La metodología 2024 (canasta actualizada, disponible 2022 y 2024) usa la variable pobreza de esas bases. El mapa regional usa metodología 2024; el dumbbell 2013→2024, la serie comparable.\nIngresos: mediana del ingreso per cápita del hogar (cuantiles con svyquantile); pesos corrientes de cada año (no deflactados).\nÑuble existe como región desde 2018: en 2013–2017 sus datos están dentro de Biobío.\nCSV agregados y código en el repositorio."
   },
   {
     "objectID": "index.html",
