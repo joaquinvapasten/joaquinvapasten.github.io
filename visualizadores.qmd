@@ -3,14 +3,39 @@ title: "Visualizadores"
 toc: false
 ---
 
-Visualizaciones interactivas que construyo a partir de bases de datos sociales, hechas en **R** (con `ggplot2`, `plotly`, `DT`, `leaflet`) y renderizadas con Quarto. Cada una vive en su propia página y se puede explorar directamente en el navegador, sin servidor.
+Visualizaciones interactivas construidas desde **microdatos oficiales** (INE, MDSF), con
+**diseño muestral complejo** (estratos, conglomerados y factores de expansión vía
+`survey` en R) y renderizadas con Quarto + plotly. Cada una vive en su propia página y
+se explora directamente en el navegador.
 
 ::: {.card-grid}
 
 [
-### Ejemplo: Desigualdad regional
-Visualizador de demostración con datos simulados: gráficos interactivos, tabla filtrable y mapa. Plantilla para tus propios análisis.
-<span class="tag">demo · activo</span>
+### ENUSC: denuncia y cifra negra
+Victimización 2008–2024, tasa de denuncia por delito, motivos para no denunciar y
+brechas regionales. El corazón de mi investigación.
+<span class="tag">ENUSC · INE · 2008–2024</span>
+]{.vcard onclick="window.location='proyectos/enusc-no-denuncia.html'" style="cursor:pointer;"}
+
+[
+### CASEN: pobreza e ingresos
+Serie de pobreza por ingresos 2013–2024 con IC 95%, mapa regional, dumbbell del avance
+por región, mediana de ingresos y ratio p90/p10.
+<span class="tag">CASEN · MDSF · 2013–2024</span>
+]{.vcard onclick="window.location='proyectos/casen-pobreza.html'" style="cursor:pointer;"}
+
+[
+### Pobreza × crimen: cruce territorial
+CASEN y ENUSC 2024 cruzadas a nivel regional: ¿coinciden la geografía de la pobreza,
+la de la victimización y la de la cifra negra?
+<span class="tag">cruce · 16 regiones · 2024</span>
+]{.vcard onclick="window.location='proyectos/territorio-cruzado.html'" style="cursor:pointer;"}
+
+[
+### Demo: plantilla de visualizador
+Página de demostración con datos simulados (gráficos, tabla y mapa) que uso como
+plantilla para nuevos análisis.
+<span class="tag">demo</span>
 ]{.vcard onclick="window.location='proyectos/ejemplo-desigualdad.html'" style="cursor:pointer;"}
 
 ::: {.vcard .soon}
@@ -25,19 +50,12 @@ Predictores sociodemográficos de la violencia contra la mujer en Chile.
 <span class="tag">próximamente</span>
 :::
 
-::: {.vcard .soon}
-### Caracterización CASEN
-Explorador interactivo de pobreza e ingresos por región y año.
-<span class="tag">próximamente</span>
-:::
-
 :::
 
 ::: {.callout-tip collapse="true"}
-## Cómo agregar un nuevo visualizador
-
-1. Crea un archivo `proyectos/mi-analisis.qmd` (puedes copiar `proyectos/ejemplo-desigualdad.qmd` como base).
-2. Escribe tu análisis en R dentro de bloques ```` ```{r} ````.
-3. Agrega una tarjeta en esta página apuntando a `proyectos/mi-analisis.html`.
-4. Vuelve a publicar con `quarto publish gh-pages`.
+## Cómo se construyen
+1. Un script en `prep/` lee los **microdatos** (no viajan al repositorio) y estima con `survey::svydesign` los indicadores con sus IC 95%.
+2. Los agregados (CSV pequeños) viven en `data/` dentro del repo.
+3. Cada página `proyectos/*.qmd` lee esos CSV y arma los gráficos interactivos con plotly y DT.
+4. GitHub Actions renderiza y publica automáticamente con cada push.
 :::

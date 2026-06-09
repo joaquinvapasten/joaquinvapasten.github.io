@@ -31,6 +31,11 @@ jobs:
             any::plotly
             any::DT
             any::leaflet
+            any::tidyr
+            any::jsonlite
+            any::scales
+            any::knitr
+            any::rmarkdown
 
       - name: Renderizar y publicar
         uses: quarto-dev/quarto-actions/publish@v2

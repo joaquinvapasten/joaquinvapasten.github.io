@@ -1,0 +1,171 @@
+motivo,pct,se,delito,pref,n_no_denuncia
+El incidente no fue lo suficientemente serio,15.4958654561058,1.19109056761333,Robo desde vehículo,RDDV,1653
+La justicia o tribunales no hubiera hecho nada,15.9222225992106,1.28195449460239,Robo desde vehículo,RDDV,1653
+La policía me recomendó no registrar la denuncia,1.04703627313208,0.423335936103103,Robo desde vehículo,RDDV,1653
+La policía no podría haber hecho nada,30.4423123127435,1.8454451255538,Robo desde vehículo,RDDV,1653
+Otro,3.31352592192911,0.588333672388043,Robo desde vehículo,RDDV,1653
+Por temor a amenazas o represalias,0.851995583023616,0.271608986895272,Robo desde vehículo,RDDV,1653
+Porque conoce a los responsables,1.01817548074803,0.269855282561894,Robo desde vehículo,RDDV,1653
+Porque el problema se solucionó,2.26708153496017,0.436739887403701,Robo desde vehículo,RDDV,1653
+Porque el trámite demanda mucho tiempo,18.4713731902259,1.68289540239931,Robo desde vehículo,RDDV,1653
+Porque no tenía seguro,1.0114421145662,0.425872285648837,Robo desde vehículo,RDDV,1653
+Porque no tenía testigos,10.158969533355,1.09859433025962,Robo desde vehículo,RDDV,1653
+El incidente no fue lo suficientemente serio,23.1639398258611,1.70935803158958,Vandalismo a vehículo,VANDVHC,1086
+La justicia o tribunales no hubiera hecho nada,13.6736569584897,1.31215326852173,Vandalismo a vehículo,VANDVHC,1086
+La policía me recomendó no registrar la denuncia,0.767480254594955,0.342971833623925,Vandalismo a vehículo,VANDVHC,1086
+La policía no podría haber hecho nada,21.9193004752131,1.69909796329885,Vandalismo a vehículo,VANDVHC,1086
+Otro,3.28720268164478,0.660003445647266,Vandalismo a vehículo,VANDVHC,1086
+Por temor a amenazas o represalias,2.81560856256702,0.652215141582296,Vandalismo a vehículo,VANDVHC,1086
+Porque conoce a los responsables,1.23390260359893,0.476085871551596,Vandalismo a vehículo,VANDVHC,1086
+Porque el problema se solucionó,1.75964102612054,0.475550563549211,Vandalismo a vehículo,VANDVHC,1086
+Porque el trámite demanda mucho tiempo,14.9234093002796,1.30887636426651,Vandalismo a vehículo,VANDVHC,1086
+Porque no tenía seguro,0.8728086887021,0.334193351389974,Vandalismo a vehículo,VANDVHC,1086
+Porque no tenía testigos,15.5830496229282,1.30728126455965,Vandalismo a vehículo,VANDVHC,1086
+El incidente no fue lo suficientemente serio,12.1636278804414,2.00490742543366,Robo en la vivienda,RFV,414
+La justicia o tribunales no hubiera hecho nada,15.179243542143,2.1162828677695,Robo en la vivienda,RFV,414
+La policía me recomendó no registrar la denuncia,1.03185461284931,0.650605669853683,Robo en la vivienda,RFV,414
+La policía no podría haber hecho nada,28.6285386895533,2.98374680266602,Robo en la vivienda,RFV,414
+Otro,4.83051409432678,1.64040845467386,Robo en la vivienda,RFV,414
+Por temor a amenazas o represalias,6.34606025943282,1.39900059267586,Robo en la vivienda,RFV,414
+Porque conoce a los responsables,4.38856531450628,1.60466000342934,Robo en la vivienda,RFV,414
+Porque el problema se solucionó,1.46145795134314,0.713534722482217,Robo en la vivienda,RFV,414
+Porque el trámite demanda mucho tiempo,18.091108198549,3.17550992406929,Robo en la vivienda,RFV,414
+Porque no tenía seguro,0.21377940412878,0.21390539606654,Robo en la vivienda,RFV,414
+Porque no tenía testigos,7.66525005272622,1.64207148454413,Robo en la vivienda,RFV,414
+El incidente no fue lo suficientemente serio,31.1924749126586,2.99681336866796,Vandalismo a la vivienda,VANDVIV,427
+La justicia o tribunales no hubiera hecho nada,9.5526034861644,2.03358620362461,Vandalismo a la vivienda,VANDVIV,427
+La policía me recomendó no registrar la denuncia,0.782414944334026,0.497975112301646,Vandalismo a la vivienda,VANDVIV,427
+La policía no podría haber hecho nada,28.3436297102917,3.48187181737582,Vandalismo a la vivienda,VANDVIV,427
+Otro,5.91115042962699,1.3007808776775,Vandalismo a la vivienda,VANDVIV,427
+Por temor a amenazas o represalias,2.64041364871186,0.837034741799062,Vandalismo a la vivienda,VANDVIV,427
+Porque conoce a los responsables,1.27592126474924,0.689666646446878,Vandalismo a la vivienda,VANDVIV,427
+Porque el problema se solucionó,3.87944814288451,1.06373590893879,Vandalismo a la vivienda,VANDVIV,427
+Porque el trámite demanda mucho tiempo,7.41096692102587,1.34460769856339,Vandalismo a la vivienda,VANDVIV,427
+Porque no tenía testigos,9.01097653955284,1.86052342236324,Vandalismo a la vivienda,VANDVIV,427
+El incidente no fue lo suficientemente serio,3.50948245544174,0.919050303039069,Robo con violencia,RVI,338
+La justicia o tribunales no hubiera hecho nada,15.7381688800737,2.22223623270602,Robo con violencia,RVI,338
+La policía me recomendó no registrar la denuncia,1.15791583694471,0.483793324959694,Robo con violencia,RVI,338
+La policía no podría haber hecho nada,36.6752779744017,3.3394959246906,Robo con violencia,RVI,338
+Otro,9.73988788538018,2.24208450192104,Robo con violencia,RVI,338
+Por temor a amenazas o represalias,9.06753944338477,2.30648806711892,Robo con violencia,RVI,338
+Porque conoce a los responsables,0.591294598214701,0.541143633292495,Robo con violencia,RVI,338
+Porque el problema se solucionó,0.137285870282917,0.102444506572294,Robo con violencia,RVI,338
+Porque el trámite demanda mucho tiempo,16.6585114693961,2.56708789527677,Robo con violencia,RVI,338
+Porque no tenía testigos,6.72463558647949,1.69938113499799,Robo con violencia,RVI,338
+El incidente no fue lo suficientemente serio,6.54841423138953,1.47372186122198,Robo por sorpresa,RPS,462
+La justicia o tribunales no hubiera hecho nada,20.5579351700414,2.39936518314875,Robo por sorpresa,RPS,462
+La policía me recomendó no registrar la denuncia,1.01858848939817,0.505890001000783,Robo por sorpresa,RPS,462
+La policía no podría haber hecho nada,37.5806489397497,3.12754505150754,Robo por sorpresa,RPS,462
+Otro,4.77777584307242,1.32510670742555,Robo por sorpresa,RPS,462
+Por temor a amenazas o represalias,3.69134467330632,1.08656791383019,Robo por sorpresa,RPS,462
+Porque el problema se solucionó,1.82524905973363,0.7930635585582,Robo por sorpresa,RPS,462
+Porque el trámite demanda mucho tiempo,15.94248139706,2.01585657263908,Robo por sorpresa,RPS,462
+Porque no tenía seguro,1.14552961588844,0.812595240125162,Robo por sorpresa,RPS,462
+Porque no tenía testigos,6.91203258036031,1.88481951343607,Robo por sorpresa,RPS,462
+El incidente no fue lo suficientemente serio,14.8156971293928,1.28914306101264,Hurto,HUR,1140
+La justicia o tribunales no hubiera hecho nada,11.7514792100068,1.22722218146776,Hurto,HUR,1140
+La policía me recomendó no registrar la denuncia,1.19268314490165,0.410726568498187,Hurto,HUR,1140
+La policía no podría haber hecho nada,32.8972587139149,1.97344945105213,Hurto,HUR,1140
+Otro,3.98151047033744,0.711261044146512,Hurto,HUR,1140
+Por temor a amenazas o represalias,2.42491331100104,0.671154588712004,Hurto,HUR,1140
+Porque conoce a los responsables,4.0835577638259,0.848978370739508,Hurto,HUR,1140
+Porque el problema se solucionó,2.74045511214186,0.578947990680725,Hurto,HUR,1140
+Porque el trámite demanda mucho tiempo,15.1569586992787,1.38700141419086,Hurto,HUR,1140
+Porque no tenía seguro,0.0443706555554774,0.0443952441731276,Hurto,HUR,1140
+Porque no tenía testigos,10.9111157896435,1.15958338178557,Hurto,HUR,1140
+El incidente no fue lo suficientemente serio,6.0274109481113,1.24087049380699,Fraude bancario,FRB,934
+La justicia o tribunales no hubiera hecho nada,7.50729897227661,1.23027386093223,Fraude bancario,FRB,934
+La policía me recomendó no registrar la denuncia,1.45802650443258,0.484097466283336,Fraude bancario,FRB,934
+La policía no podría haber hecho nada,12.3991314816215,1.61828166749318,Fraude bancario,FRB,934
+Otro,12.3568464949955,1.36297124627389,Fraude bancario,FRB,934
+Por temor a amenazas o represalias,0.292811136428144,0.193137662800717,Fraude bancario,FRB,934
+Porque conoce a los responsables,1.09923405553788,0.38573055180632,Fraude bancario,FRB,934
+Porque el problema se solucionó,43.9618111844028,2.27530373468911,Fraude bancario,FRB,934
+Porque el trámite demanda mucho tiempo,12.9499576772576,1.4634138167269,Fraude bancario,FRB,934
+Porque no tenía seguro,0.751475371382415,0.324582413873066,Fraude bancario,FRB,934
+Porque no tenía testigos,1.19599617355359,0.467571375021755,Fraude bancario,FRB,934
+El incidente no fue lo suficientemente serio,15.8507507860172,2.10418043901297,Estafa,EST,703
+La justicia o tribunales no hubiera hecho nada,16.924669882721,1.90268298510183,Estafa,EST,703
+La policía me recomendó no registrar la denuncia,0.659495230684604,0.318728267127794,Estafa,EST,703
+La policía no podría haber hecho nada,25.2726335820775,2.37008120220598,Estafa,EST,703
+Otro,10.1655666652252,1.44713844930188,Estafa,EST,703
+Por temor a amenazas o represalias,3.16211057052725,0.917340668498671,Estafa,EST,703
+Porque conoce a los responsables,2.94181183769385,0.887323293911985,Estafa,EST,703
+Porque el problema se solucionó,2.47307287318168,0.790759688589666,Estafa,EST,703
+Porque el trámite demanda mucho tiempo,17.9270083200735,2.55061949752689,Estafa,EST,703
+Porque no tenía seguro,0.181811862864015,0.121793626865708,Estafa,EST,703
+Porque no tenía testigos,4.44106838893416,0.956358680338331,Estafa,EST,703
+El incidente no fue lo suficientemente serio,18.9542201657172,3.72409985813857,Agresión,AGR,176
+La justicia o tribunales no hubiera hecho nada,10.902265837857,2.79055165000905,Agresión,AGR,176
+La policía me recomendó no registrar la denuncia,1.85512034688135,1.23682378313922,Agresión,AGR,176
+La policía no podría haber hecho nada,15.5729462235023,3.47215306221379,Agresión,AGR,176
+Otro,11.8606161838043,3.89968865682814,Agresión,AGR,176
+Por temor a amenazas o represalias,6.82356486442083,2.67349739298105,Agresión,AGR,176
+Porque conoce a los responsables,5.809517378278,2.63170192869502,Agresión,AGR,176
+Porque el problema se solucionó,9.58385830343243,3.07723153370166,Agresión,AGR,176
+Porque el trámite demanda mucho tiempo,17.2589325604619,3.91011756360113,Agresión,AGR,176
+Porque no tenía testigos,1.37895813564463,0.767762694956759,Agresión,AGR,176
+El incidente no fue lo suficientemente serio,18.6158831105723,1.87457986103572,Amenaza,AMEN,669
+La justicia o tribunales no hubiera hecho nada,10.3629330494514,1.48840317988288,Amenaza,AMEN,669
+La policía me recomendó no registrar la denuncia,0.855713387864283,0.503752687502389,Amenaza,AMEN,669
+La policía no podría haber hecho nada,18.0293477074002,2.32904624630762,Amenaza,AMEN,669
+Otro,9.4824463605081,1.74714274361144,Amenaza,AMEN,669
+Por temor a amenazas o represalias,20.4665904635401,2.38112276378197,Amenaza,AMEN,669
+Porque conoce a los responsables,3.76658033956479,0.948005793787834,Amenaza,AMEN,669
+Porque el problema se solucionó,6.28396886328802,1.16969098023301,Amenaza,AMEN,669
+Porque el trámite demanda mucho tiempo,9.55676160080111,1.6330125496296,Amenaza,AMEN,669
+Porque no tenía testigos,2.57977511700969,0.680436101377536,Amenaza,AMEN,669
+El incidente no fue lo suficientemente serio,14.9293922372052,4.29373431030982,Extorsión,EXT,93
+La justicia o tribunales no hubiera hecho nada,12.3729541051648,5.09539140207028,Extorsión,EXT,93
+La policía me recomendó no registrar la denuncia,0.513909195820099,0.521018729598563,Extorsión,EXT,93
+La policía no podría haber hecho nada,10.7520784458181,4.0460379467373,Extorsión,EXT,93
+Otro,16.1669548563531,5.55821641521006,Extorsión,EXT,93
+Por temor a amenazas o represalias,19.5887911561874,7.36870192046466,Extorsión,EXT,93
+Porque conoce a los responsables,3.99161457290686,2.16088699334994,Extorsión,EXT,93
+Porque el problema se solucionó,3.8793671234787,1.50154321341222,Extorsión,EXT,93
+Porque el trámite demanda mucho tiempo,16.5059742459208,9.35714568459027,Extorsión,EXT,93
+Porque no tenía testigos,1.29896406114496,0.776916386779226,Extorsión,EXT,93
+El problema no fue lo suficientemente serio,22.5792357445455,2.03435427525447,Hackeo de cuentas,HACK,935
+La justicia o tribunales no hubieran hecho nada,9.95203825711226,1.26759868268729,Hackeo de cuentas,HACK,935
+La policía me recomendó no registrar la denuncia,1.14544672692436,0.412674033860195,Hackeo de cuentas,HACK,935
+La policía no podría haber hecho nada,14.2713784806022,1.58138085185277,Hackeo de cuentas,HACK,935
+No sabía que era un delito,16.0364226467389,1.45354559671491,Hackeo de cuentas,HACK,935
+Otro,4.34011714894948,0.838832463406546,Hackeo de cuentas,HACK,935
+Por temor a amenazas o represalias,1.39099401524893,0.528777386040337,Hackeo de cuentas,HACK,935
+Porque conoce a los responsables,1.15740425355254,0.435450555188406,Hackeo de cuentas,HACK,935
+Porque el problema se solucionó,23.3256688248348,1.8980191875234,Hackeo de cuentas,HACK,935
+Porque el trámite demanda mucho tiempo,5.05173923708386,0.725816289924261,Hackeo de cuentas,HACK,935
+Porque no tenía testigos,0.749554664407222,0.298039969506044,Hackeo de cuentas,HACK,935
+El problema no fue lo suficientemente serio,22.3396055982897,3.22588393294699,Virus informático,VIRUS,298
+La justicia o tribunales no hubieran hecho nada,11.4099151204523,2.49349369123745,Virus informático,VIRUS,298
+La policía me recomendó no registrar la denuncia,1.47362186240896,0.91078694497364,Virus informático,VIRUS,298
+La policía no podría haber hecho nada,12.3409427634386,2.33388240068221,Virus informático,VIRUS,298
+No sabía que era un delito,16.9641147914154,2.91163395524279,Virus informático,VIRUS,298
+Otro,3.95347643243234,1.43476057986773,Virus informático,VIRUS,298
+Por temor a amenazas o represalias,0.462072627626599,0.362386915517575,Virus informático,VIRUS,298
+Porque conoce a los responsables,0.229552827404153,0.163534477826381,Virus informático,VIRUS,298
+Porque el problema se solucionó,21.1454479487339,2.69139282504638,Virus informático,VIRUS,298
+Porque el trámite demanda mucho tiempo,8.75785008282503,1.84368154916985,Virus informático,VIRUS,298
+Porque no tenía testigos,0.923399944973165,0.6431551459885,Virus informático,VIRUS,298
+El problema no fue lo suficientemente serio,10.4802181405982,2.62441218212568,Ciberacoso,BULLY,178
+La justicia o tribunales no hubieran hecho nada,6.79962195677934,2.26908691929917,Ciberacoso,BULLY,178
+La policía me recomendó no registrar la denuncia,0.738790414424349,0.441327554899114,Ciberacoso,BULLY,178
+La policía no podría haber hecho nada,9.12597300415731,2.65494854722369,Ciberacoso,BULLY,178
+No sabía que era un delito,11.2365435402948,4.86031028363199,Ciberacoso,BULLY,178
+Otro,20.7848139721384,4.23842348986389,Ciberacoso,BULLY,178
+Por temor a amenazas o represalias,8.46204243023222,3.41222764852702,Ciberacoso,BULLY,178
+Porque conoce a los responsables,4.38391521692551,1.85302472348903,Ciberacoso,BULLY,178
+Porque el problema se solucionó,21.0275035566492,4.72656991044383,Ciberacoso,BULLY,178
+Porque el trámite demanda mucho tiempo,3.17878769309046,1.12256941721513,Ciberacoso,BULLY,178
+Porque no tenía testigos,3.78179007471027,2.35365120887186,Ciberacoso,BULLY,178
+El problema no fue lo suficientemente serio,19.1474497242973,5.51040921825908,Suplantación de identidad,SUPLANT,91
+La justicia o tribunales no hubieran hecho nada,12.8962414556664,5.60882134235203,Suplantación de identidad,SUPLANT,91
+La policía me recomendó no registrar la denuncia,1.39262615728601,0.831154638184394,Suplantación de identidad,SUPLANT,91
+La policía no podría haber hecho nada,16.6005247961474,4.14595148919847,Suplantación de identidad,SUPLANT,91
+No sabía que era un delito,12.5365448150982,4.49638295814124,Suplantación de identidad,SUPLANT,91
+Otro,7.3925623526126,2.7766714401314,Suplantación de identidad,SUPLANT,91
+Por temor a amenazas o represalias,1.35393417671251,0.990450272136588,Suplantación de identidad,SUPLANT,91
+Porque conoce a los responsables,4.27219815151514,2.36605351234504,Suplantación de identidad,SUPLANT,91
+Porque el problema se solucionó,19.2894359090536,4.99755148590391,Suplantación de identidad,SUPLANT,91
+Porque el trámite demanda mucho tiempo,3.92742212327856,2.24799047056754,Suplantación de identidad,SUPLANT,91
+Porque no tenía testigos,1.1910603383323,1.18366138898592,Suplantación de identidad,SUPLANT,91

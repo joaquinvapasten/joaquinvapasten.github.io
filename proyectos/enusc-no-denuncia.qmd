@@ -1,0 +1,195 @@
+---
+title: "ENUSC: victimización, denuncia y cifra negra"
+subtitle: "Chile 2008–2024 · estimaciones con diseño muestral complejo"
+toc: true
+toc-title: "En esta página"
+---
+
+```{r setup}
+#| include: false
+library(dplyr); library(tidyr); library(plotly); library(DT); library(scales)
+
+nac <- read.csv("../data/enusc_serie_nacional.csv", encoding = "UTF-8")
+reg <- read.csv("../data/enusc_serie_regional.csv", encoding = "UTF-8")
+del <- read.csv("../data/enusc24_denuncia_delito.csv", encoding = "UTF-8")
+mot <- read.csv("../data/enusc24_motivos.csv", encoding = "UTF-8")
+dreg <- read.csv("../data/enusc24_denuncia_region.csv", encoding = "UTF-8")
+
+PAL <- list(red = "#e5383b", red2 = "#ba181b", navy = "#14213d", text = "#e7e9ee",
+            muted = "#9aa3b5", grid = "rgba(155,163,181,.15)")
+
+lay_dark <- function(p, ...) {
+  layout(p,
+    paper_bgcolor = "rgba(0,0,0,0)", plot_bgcolor = "rgba(0,0,0,0)",
+    font = list(family = "IBM Plex Sans, sans-serif", color = PAL$text),
+    xaxis = list(gridcolor = PAL$grid, zerolinecolor = PAL$grid),
+    yaxis = list(gridcolor = PAL$grid, zerolinecolor = PAL$grid),
+    hoverlabel = list(bgcolor = "#0d1b2a", font = list(color = PAL$text)),
+    margin = list(t = 40), ...)
+}
+```
+
+::: {.callout-note}
+## Cómo leer estas cifras
+Todas las estimaciones se calcularon desde los **microdatos del INE** usando el
+**diseño muestral complejo** de la encuesta: estratos (`varstrat`), conglomerados
+(`conglomerado`) y factores de expansión del período correspondiente, con el paquete
+`survey` de R. Las bandas y barras de error son **intervalos de confianza al 95%**.
+:::
+
+## Victimización y percepción, 2008–2024
+
+¿Qué porcentaje de hogares fue víctima de un delito violento o de mayor connotación social
+(DMCS)? ¿Y cómo se compara con la **percepción** de que la delincuencia aumentó? Elige el
+indicador en el menú.
+
+```{r serie-nacional}
+#| echo: false
+#| warning: false
+inds <- nac |> distinct(indicador, etiqueta)
+fig <- plot_ly()
+for (i in seq_len(nrow(inds))) {
+  dd <- nac |> filter(indicador == inds$indicador[i]) |> arrange(anio)
+  vis <- i == 1
+  fig <- fig |>
+    add_ribbons(data = dd, x = ~anio, ymin = ~li, ymax = ~ls, name = "IC 95%",
+                line = list(color = "transparent"), fillcolor = "rgba(229,56,59,.18)",
+                showlegend = FALSE, visible = vis, hoverinfo = "skip") |>
+    add_trace(data = dd, x = ~anio, y = ~est, type = "scatter", mode = "lines+markers",
+              name = inds$etiqueta[i], visible = vis, showlegend = FALSE,
+              line = list(color = PAL$red, width = 3), marker = list(color = PAL$red, size = 7),
+              hovertemplate = paste0("<b>%{x}</b><br>", inds$etiqueta[i],
+                                     ": %{y:.1f}%<br>IC95: [", round(dd$li,1), " – ", round(dd$ls,1), "]<extra></extra>"))
+}
+buttons <- lapply(seq_len(nrow(inds)), function(i) {
+  vis <- rep(FALSE, 2 * nrow(inds)); vis[c(2*i-1, 2*i)] <- TRUE
+  list(method = "restyle", args = list("visible", as.list(vis)), label = inds$etiqueta[i])
+})
+fig |> lay_dark(
+  updatemenus = list(list(buttons = buttons, x = 0, xanchor = "left", y = 1.18,
+                          bgcolor = "#14213d", font = list(color = PAL$text))),
+  yaxis = list(title = "% (IC 95%)", rangemode = "tozero", gridcolor = PAL$grid),
+  xaxis = list(title = "", dtick = 2, gridcolor = PAL$grid), height = 460)
+```
+
+::: {.callout-tip collapse="true"}
+## Qué muestra cada indicador
+- **Hogar víctima DMCS**: hogares víctimas de algún delito de mayor connotación social en los últimos 12 meses (factor de hogares).
+- **Percepción de aumento**: personas que creen que la delincuencia **aumentó en el país** (factor de personas). La brecha entre percepción y victimización es uno de los hallazgos clásicos de la ENUSC.
+- Robos y hurtos a personas usan factor de personas; robos asociados a la vivienda o vehículos, factor de hogares.
+:::
+
+## La foto regional (2018–2024)
+
+```{r heatmap-regional}
+#| echo: false
+#| warning: false
+hm <- reg |> filter(indicador == "vh_dmcs") |>
+  mutate(region_nombre = reorder(region_nombre, est, mean))
+plot_ly(hm, x = ~anio, y = ~region_nombre, z = ~est, type = "heatmap",
+        colorscale = list(c(0, "#14213d"), c(.5, "#7a0c10"), c(1, "#e5383b")),
+        hovertemplate = "<b>%{y}</b> · %{x}<br>Hogares víctimas DMCS: %{z:.1f}%<extra></extra>",
+        colorbar = list(title = "%", outlinecolor = "transparent")) |>
+  lay_dark(xaxis = list(title = "", dtick = 1), yaxis = list(title = ""), height = 520) |>
+  layout(title = list(text = "Hogares víctimas de DMCS por región (%)", font = list(size = 15)))
+```
+
+## 2024: ¿quién denuncia? La cifra negra
+
+De cada delito sufrido en 2024, ¿cuántas víctimas lo **denunciaron formalmente**? La
+**cifra negra** —el complemento— es el corazón de mi investigación: delitos que nunca
+entran a las estadísticas oficiales.
+
+```{r denuncia-delito}
+#| echo: false
+#| warning: false
+dd <- del |> arrange(tasa_denuncia) |> mutate(delito = factor(delito, levels = delito))
+plot_ly(dd) |>
+  add_trace(x = ~cifra_negra, y = ~delito, type = "bar", orientation = "h",
+            name = "No denunció (cifra negra)", marker = list(color = "#7a0c10"),
+            hovertemplate = "<b>%{y}</b><br>Cifra negra: %{x:.1f}%<extra></extra>") |>
+  add_trace(x = ~tasa_denuncia, y = ~delito, type = "bar", orientation = "h",
+            name = "Denunció", marker = list(color = PAL$red),
+            error_x = list(type = "data", array = ~ls - tasa_denuncia,
+                           arrayminus = ~tasa_denuncia - li, color = PAL$text, thickness = 1),
+            customdata = ~n_victimas,
+            hovertemplate = "<b>%{y}</b><br>Denunció: %{x:.1f}%<br>n víctimas: %{customdata}<extra></extra>") |>
+  lay_dark(barmode = "stack", height = 640,
+           xaxis = list(title = "% de víctimas (último incidente)", range = c(0, 100), gridcolor = PAL$grid),
+           yaxis = list(title = ""), legend = list(orientation = "h", y = 1.08))
+```
+
+::: {.lead}
+Los delitos **violentos y patrimoniales mayores** (robo de vehículo, robo en la vivienda,
+robo con violencia) se denuncian mucho más que los **ciberdelitos y delitos económicos**,
+donde la cifra negra supera con holgura el 80%.
+:::
+
+## ¿Por qué NO se denuncia?
+
+Motivo principal declarado por quienes no denunciaron, según delito (menú).
+
+```{r motivos}
+#| echo: false
+#| warning: false
+mot2 <- mot |> mutate(motivo = trimws(gsub("\\s+", " ", motivo)))
+dels <- mot2 |> distinct(delito) |> pull(delito)
+fig <- plot_ly()
+for (i in seq_along(dels)) {
+  md <- mot2 |> filter(delito == dels[i]) |> arrange(pct) |>
+    mutate(motivo = factor(motivo, levels = motivo))
+  fig <- fig |> add_trace(data = md, x = ~pct, y = ~motivo, type = "bar", orientation = "h",
+            visible = i == 1, showlegend = FALSE, marker = list(color = PAL$red),
+            customdata = ~n_no_denuncia,
+            hovertemplate = "<b>%{y}</b><br>%{x:.1f}% · n no denunciantes: %{customdata}<extra></extra>")
+}
+buttons <- lapply(seq_along(dels), function(i) {
+  vis <- rep(FALSE, length(dels)); vis[i] <- TRUE
+  list(method = "restyle", args = list("visible", as.list(vis)), label = dels[i])
+})
+fig |> lay_dark(
+  updatemenus = list(list(buttons = buttons, x = 0, xanchor = "left", y = 1.15,
+                          bgcolor = "#14213d", font = list(color = PAL$text))),
+  xaxis = list(title = "% de quienes no denunciaron", gridcolor = PAL$grid),
+  yaxis = list(title = ""), height = 520, margin = list(l = 10))
+```
+
+## Denuncia por región (delitos seleccionados, 2024)
+
+```{r denuncia-region}
+#| echo: false
+#| warning: false
+hr <- dreg |> mutate(txt = ifelse(N < 60, "n bajo", ""))
+plot_ly(hr, x = ~delito, y = ~region_nombre, z = ~est, type = "heatmap",
+        colorscale = list(c(0, "#14213d"), c(1, "#e5383b")),
+        customdata = ~N,
+        hovertemplate = "<b>%{y}</b> · %{x}<br>Denuncia: %{z:.1f}%<br>n víctimas: %{customdata}<extra></extra>",
+        colorbar = list(title = "%", outlinecolor = "transparent")) |>
+  lay_dark(xaxis = list(title = ""), yaxis = list(title = ""), height = 560) |>
+  layout(title = list(text = "Tasa de denuncia por región y delito (%) — celdas con n pequeño, interpretar con cautela",
+                      font = list(size = 13)))
+```
+
+## Datos
+
+```{r tabla}
+#| echo: false
+del |> transmute(Delito = delito, Nivel = nivel,
+                 `Denuncia (%)` = round(tasa_denuncia, 1),
+                 `IC 95%` = paste0("[", round(li,1), " – ", round(ls,1), "]"),
+                 `Cifra negra (%)` = round(cifra_negra, 1),
+                 `n víctimas` = n_victimas) |>
+  datatable(rownames = FALSE, options = list(pageLength = 18, dom = "ft"),
+            caption = "ENUSC 2024 · estimaciones ponderadas con diseño complejo")
+```
+
+---
+
+::: {.callout-note collapse="true"}
+## Nota metodológica
+- **Fuente:** ENUSC (INE). Serie 2008–2024 desde la base interanual oficial; módulo de denuncia desde la base 2024.
+- **Diseño:** estimadores de razón con estratos y conglomerados (`survey::svydesign`, `nest = TRUE`), factores de expansión del período de comparabilidad correspondiente (2008–2019 y 2019–2024); opción `survey.lonely.psu = "adjust"`.
+- **Denuncia:** porcentaje de víctimas que declara que el **último incidente** fue denunciado formalmente; motivos entre quienes no denunciaron. Delitos de hogar usan factor de hogar; delitos a la persona, factor de personas.
+- **Región:** serie regional disponible desde 2018 (codificación de 16 regiones de la base interanual).
+- Los archivos agregados (CSV) están disponibles en el [repositorio del sitio](https://github.com/joaquinvapasten/joaquinvapasten.github.io/tree/main/data); el código de preparación, en la carpeta [`prep/`](https://github.com/joaquinvapasten/joaquinvapasten.github.io/tree/main/prep).
+:::

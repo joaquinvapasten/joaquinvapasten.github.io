@@ -6,3 +6,5 @@ sitio-joaquin.zip
 .Rhistory
 .RData
 .DS_Store
+
+**/*.quarto_ipynb
