@@ -13,11 +13,11 @@ page-layout: full
 <p class="hero__tags">Métodos de Investigación Social · Criminología · Seguridad Pública · Desigualdades</p>
 
 ::: {.btn-link-row}
-[✉ Email](mailto:joaquinvapasten@gmail.com){.pill}
-[GitHub ↗](https://github.com/joaquinvapasten){.pill}
-[LinkedIn ↗](www.linkedin.com/in/joaquín-valenzuela-pastén-66ba12273){.pill}
-[Google Scholar ↗](https://scholar.google.com){.pill}
-[CV →](cv.qmd){.pill}
+[Email](mailto:joaquinvapasten@gmail.com){.pill}
+[GitHub](https://github.com/joaquinvapasten){.pill}
+[LinkedIn](https://www.linkedin.com/in/joaqu%C3%ADn-valenzuela-past%C3%A9n-66ba12273/){.pill}
+[Google Scholar](https://scholar.google.com){.pill}
+[CV](cv.qmd){.pill}
 :::
 :::
 :::
@@ -26,9 +26,9 @@ page-layout: full
 
 Soy estudiante de último año de Ciencia Política en la Universidad Diego Portales, mis intereses se alinean con los métodos de investigación social, preferentemente aquellos relativos a la inferencia causal, también me gusta bastante la Criminología y la investigación en Seguridad Pública.
 
-Actualmente estoy desarrollando mi tesis de pregrado acerca de cómo el miedo al crimen moldea las preferencias de política pública de los ricos sobre redistribución o represión.
+Actualmente estoy desarrollando mi tesis de pregrado sobre miedo al crimen y preferencias redistributivas y punitivas de los ricos en América Latina: cómo la inseguridad moldea lo que las élites están dispuestas a apoyar en materia de redistribución y de mano dura.
 
-En esta página he alojado mi CV, algunos visualizadores interactivos en los que he estado trabajando a partir de bases de datos sociales, y una selección de lecturas que me interesan bastante.
+En esta página he alojado mi CV y un explorador interactivo construido a partir de encuestas sociales chilenas.
 
 ## Líneas de interés
 
@@ -54,5 +54,5 @@ Manipulación de encuestas complejas, visualización y comunicación de resultad
 ---
 
 ::: {.lead}
-¿Quieres ver en qué estoy trabajando? Pasa por la sección de [**visualizadores**](visualizadores.qmd) o revisa mi [**CV**](cv.qmd).
+¿Quieres ver en qué estoy trabajando? Pasa por el [**explorador de datos**](explorador.qmd) o revisa mi [**CV**](cv.qmd).
 :::

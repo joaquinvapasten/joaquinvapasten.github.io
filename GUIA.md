@@ -25,11 +25,11 @@ Edito un .qmd  →  git push  →  GitHub Actions renderiza  →  sitio actualiz
 |---|---|---|
 | `index.qmd` | La portada ("Sobre mí", líneas de interés) | ✅ Sí |
 | `cv.qmd` | Página del CV (muestra el PDF) | ✅ Sí, poco |
-| `visualizadores.qmd` | Galería de tus visualizadores en R | ✅ Sí |
-| `lecturas.qmd` | Página de lecturas/biblioteca | ✅ Sí |
+| `explorador.qmd` | El explorador interactivo (ENUSC / CASEN / Cruce) | ✅ Avanzado |
+| `data/*.csv` | Los datos agregados que alimentan el explorador | ✅ Reemplazar |
+| `prep/*.R` | Scripts R que generan los CSV desde los microdatos | ✅ Avanzado |
 | `files/cv.pdf` | Tu CV en PDF (lo que se descarga) | ✅ Reemplazar |
 | `img/perfil.jpg` | Tu foto de perfil | ✅ Reemplazar |
-| `proyectos/*.qmd` | Cada visualizador con código R | ✅ Avanzado |
 | `_quarto.yml` | Configuración: menú, título, links, correo | ⚠️ Con cuidado |
 | `custom.scss` | Los colores y el diseño (tema oscuro) | ⚠️ Solo si quieres |
 | `styles.css` | Ajustes extra de estilo | ⚠️ Rara vez |
@@ -149,7 +149,7 @@ Se abre en el navegador y se **recarga solo** cada vez que guardas. Para cerrarl
 
 ## 8. Agregar un visualizador nuevo (avanzado, con R)
 
-1. Copia `proyectos/ejemplo-desigualdad.qmd` y renómbralo, ej. `proyectos/casen.qmd`.
+1. Copia una página existente de `proyectos/` como base (ej. `enusc-no-denuncia.qmd`).
 2. Dentro, reemplaza los datos de ejemplo por los tuyos y tu código R (va en bloques
    ` ```{r} ... ``` `).
 3. En `visualizadores.qmd`, agrega una tarjeta que apunte a `proyectos/casen.html`.

@@ -6,7 +6,7 @@ toc: false
 Mi CV actualizado. Puedes verlo aquí mismo o descargarlo en PDF.
 
 ::: {.btn-link-row}
-[⬇ Descargar CV (PDF)](files/cv.pdf){.pill download="CV_Joaquin.pdf"}
+[Descargar CV (PDF)](files/cv.pdf){.pill download="CV_Joaquin.pdf"}
 :::
 
 <br>

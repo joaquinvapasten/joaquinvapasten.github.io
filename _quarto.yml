@@ -21,12 +21,8 @@ website:
         href: index.qmd
       - text: "CV"
         href: cv.qmd
-      - text: "Visualizadores"
-        href: visualizadores.qmd
       - text: "Explorador"
-        href: proyectos/explorador.qmd
-      - text: "Lecturas"
-        href: lecturas.qmd
+        href: explorador.qmd
     right:
       - icon: envelope
         href: "mailto:joaquinvapasten@gmail.com"
@@ -35,7 +31,7 @@ website:
         href: "https://github.com/joaquinvapasten"
         aria-label: GitHub
       - icon: linkedin
-        href: "https://www.linkedin.com/in/joaquinvapasten/"
+        href: "https://www.linkedin.com/in/joaqu%C3%ADn-valenzuela-past%C3%A9n-66ba12273/"
         aria-label: LinkedIn
 
   page-footer:
