@@ -39,7 +39,7 @@ website:
   page-footer:
     border: false
     left: "© 2026 Joaquín"
-    center: "Estratificación · desigualdad · métodos cuantitativos"
+    center: ""
     right: "Hecho con [Quarto](https://quarto.org)"
 
 format:
