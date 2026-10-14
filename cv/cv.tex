@@ -1,0 +1,170 @@
+\documentclass[a4paper,10pt]{article}
+
+% --- PAQUETES Y CONFIGURACIÓN ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{parskip}
+
+% --- HYPERREF EN NEGRO ---
+\hypersetup{colorlinks=true, urlcolor=black, linkcolor=black}
+
+% --- FORMATO DE LAS SECCIONES (más compacto) ---
+\titleformat{\section}{\normalsize\bfseries\uppercase}{}{0em}{}[\vspace{-4pt}\rule{\textwidth}{0.4pt}]
+\titlespacing{\section}{0pt}{8pt}{3pt}
+
+% --- ESPACIADO GENERAL MÁS COMPACTO ---
+\setlength{\parskip}{2pt}
+\setlength{\parindent}{0pt}
+
+% --- COMANDO PARA ENTRADAS ---
+\newcommand{\experience}[4]{%
+    \textbf{#1} \hfill {#2}\\
+    \textit{\small#3} \hfill \textit{\small#4}\par\vspace{1pt}
+}
+
+% --- FECHA DE COMPILACIÓN EN ESPAÑOL ---
+\newcommand{\hoyenespanol}{\number\day\ de \ifcase\month\or enero\or febrero\or marzo\or abril\or mayo\or junio\or julio\or agosto\or septiembre\or octubre\or noviembre\or diciembre\fi\ de \number\year}
+
+% --- INICIO DEL DOCUMENTO ---
+\begin{document}
+\pagestyle{empty}
+
+% --- ENCABEZADO ---
+\begin{center}
+    {\LARGE\bfseries Joaquín Valenzuela Pastén}\\[3pt]
+    {\small Estudiante de Ciencia Política}\\[2pt]
+    {\small \href{mailto:joaquin.valenzuela3@mail.udp.cl}{joaquinvapasten@gmail.com} $\cdot$
+    \href{https://www.linkedin.com/in/joaqu%C3%ADn-valenzuela-past%C3%A9n-66ba12273/}{LinkedIn} $\cdot$
+    +56 9 4712 6099 $\cdot$ Santiago, Chile}\\[3pt]
+    {\footnotesize\itshape Actualizado al \hoyenespanol}
+\end{center}
+
+% --- PERFIL ---
+\section*{Perfil}
+\small Cientista Político en formación con experiencia en investigación cuantitativa y cualitativa. Fuerte formación en métodos de investigación social. Intereses en estudios de seguridad, criminología y desigualdades, con proyección hacia una carrera académica en estas áreas.
+% --- EDUCACIÓN ---
+\section*{Educación}
+
+\experience{Licenciatura en Ciencia Política}{2023 -- Actualidad}{Universidad Diego Portales}{Santiago, Chile}
+{\small\hspace{1em}\textbf{Ranking Académico:} 3° de 63 en la generación (Top 5\%, a enero 2026).}
+
+\vspace{2pt}
+{\small\hspace{1em}\textbf{Tesista} en el FONDECYT Regular 1240231 \textit{``La dinámica política de la reforma policial en Chile''}, a cargo del Prof. Claudio Fuentes.}
+\vspace{3pt}
+
+\experience{Diplomado de Honor en Políticas Públicas}{2024 -- 2026}{Universidad Diego Portales}{}
+{\small\hspace{1em}Otorgado al 20\% de mejor rendimiento académico de cada generación.}
+\vspace{3pt}
+
+\experience{Diplomado en Producción de Datos y Análisis Cuantitativo}{2025 -- 2026}{Facultad de Ciencias Sociales e Historia, UDP}{Optativo}
+
+% --- EXPERIENCIA DE INVESTIGACIÓN ---
+\section*{Experiencia Profesional y de Investigación}
+
+\experience{Práctica Profesional}{Ago 2026}{Fundación Paz Ciudadana}{Santiago, Chile}
+{\small\hspace{1em}Cumplimiento de funciones en el área de Datos e Investigación Aplicada}
+\vspace{3pt}
+
+\experience{Asistente de Investigación}{Mar 2025 -- Nov 2025}{Centro de Estudios de Conflicto y Cohesión Social (COES)}{Santiago, Chile}
+{\small\hspace{1em}Colaboración en proyecto de investigación cuantitativo comparado. Armonicé y analicé una base de datos de más de 11.300 observaciones provenientes de 21 países mediante modelos de regresión multinivel en RStudio, contribuyendo al análisis de desigualdad y cohesión social en perspectiva comparada.}
+\vspace{3pt}
+
+\experience{Práctica Electiva: Crisis de seguridad y deterioro democrático}{Mar 2025 -- Jul 2025}{Laboratorio de Transformaciones Sociales, UDP}{Santiago, Chile}
+{\small\hspace{1em}Recopilación y análisis de datos cuantitativos sobre criminalidad y calidad democrática en América Latina. También colaboré en revisión de políticas públicas y conducción de entrevistas a expertos en seguridad y gobernabilidad.}
+\vspace{3pt}
+
+\experience{Asistente de Investigación}{Feb 2025 -- May 2025}{Swiss Network for International Studies (The Graduate Institute)}{Remoto}
+{\small\hspace{1em}Unificación y armonización de 17 bases de datos de la \textit{South African Social Attitudes Survey} (50.000 observaciones aprox.) en RStudio y Excel para el proyecto ``Democracy and Redistribution in the Global South''. Conduje también el posterior análisis multivariado de los datos y realicé levantamiento de datos cualitativos sobre documentos legales históricos en Chile.}
+\vspace{3pt}
+
+\experience{Asistente de Investigación}{Mar 2024 -- Ago 2024}{Laboratorio para el Estudio de la Radicalización Política, UDP}{Santiago, Chile}
+{\small\hspace{1em}Producción de bases de datos cualitativas mediante recolección y codificación sistemática de discursos de líderes políticos, contribuyendo al análisis de retórica radical en Chile y el mundo.}
+\vspace{3pt}
+
+\experience{Asistente de Investigación}{Jul 2023}{Núcleo Milenio para el Estudio de la Política, Opinión Pública y Medios en Chile}{Santiago, Chile}
+{\small\hspace{1em}Codificación y validación de categorías sobre conceptos de libertad en una base de datos cualitativa de discursos desestructurados}
+
+% --- EXPERIENCIA DOCENTE ---
+\section*{Experiencia Docente}
+
+\experience{Ayudante de Cátedra}{Ago 2026 - Actualidad}{Instituto de Ciencia Política, Pontificia Universidad Católica de Chile}{Santiago, Chile}
+{\small\hspace{1em}Ayudante del curso ``Herramientas Estadísticas para el Análisis Político'' (Magíster en Ciencia Política). Apoyo en la enseñanza de métodos cuantitativos y software estadístico, conducción de ayudantías y corrección de proyectos semestrales. Curso a cargo del profesor Sergio Huertas-Hernández.}
+\vspace{3pt}
+
+\experience{Ayudante de Cátedra}{Mar 2026 -- Julio 2026}{Escuela de Ciencia Política, UDP}{Santiago, Chile}
+{\small\hspace{1em}Ayudante para el curso ``Gestión Pública y Presupuestaria'' (61 estudiantes), bajo la supervisión del Prof. Alejandro Sepúlveda. Dictado de ayudantías para reforzar contenidos del curso, conducción de sesiones de apoyo y corrección de evaluaciones.}
+\vspace{3pt}
+
+\experience{Ayudante de Cátedra}{Ago 2025 -- Dic 2025}{Escuela de Ciencia Política, UDP}{Santiago, Chile}
+{\small\hspace{1em}Ayudante para el curso ``Diseño y Evaluación de Proyectos'' (34 estudiantes), bajo la supervisión del Prof. Alejandro Sepúlveda. Dictado de ayudantías para reforzar contenidos del curso y apoyo en talleres prácticos de diseño de intervenciones y evaluación de impacto.}
+\vspace{3pt}
+
+\experience{Ayudante de Cátedra}{Mar 2024 -- Jul 2024}{Escuela de Ciencia Política, UDP}{Santiago, Chile}
+{\small\hspace{1em}Ayudante para el curso ``Introducción a Métodos'' (52 estudiantes), bajo la supervisión de la Prof. Lisa Zanotti. Dictado de ayudantías para reforzar contenidos del curso, conducción de sesiones de consulta y elaboración de materiales de apoyo metodológico.}
+
+% --- PUBLICACIONES ---
+\section*{Publicaciones}
+
+\textbf{Artículo en Revisión} \hfill {2026}\\
+{\small\hspace{1em}López, M., Silva Muller, L., \& Valenzuela-Pastén, J. (2026). \textit{The Median Elite Model: How Politicians Rate Voters and Why this Matters for Redistribution}. Manuscrito en revisión en \textit{Political Science Research and Methods}, Cambridge University Press.}
+\vspace{4pt}
+
+\textbf{Capítulo de Libro} \hfill {2025}\\
+{\small\hspace{1em}Zanotti, L., Villalobos-Machuca, F., Roldán, F., Cuadra, S., \& Valenzuela-Pastén, J. (2025). Dinámicas autoritarias y de exclusión: la derecha radical en Chile. En V. Climent Sanjuán \& W. Iglecias (Eds.), \textit{La expansión global de la extrema derecha: Un estudio de casos en Europa y América Latina} (pp. 187--207). Edicions de la Universitat de Barcelona. ISBN: 978-84-1050-209-3.}
+\vspace{4pt}
+
+\textbf{Nota ECI} \hfill {2025}\\
+{\small\hspace{1em}López, M., \& Valenzuela-Pastén, J. (2025). \textit{Percepciones de élites y votantes en política}. Nota ECI, Centro de Estudios de Conflicto y Cohesión Social (COES).}
+
+% --- PONENCIAS ---
+\section*{Ponencias}
+
+\experience{Ponencia}{Nov, 2026}{Congreso de la Sociedad Chilena de Criminología}{Talca, Chile}
+{\small\hspace{1em}\textit{``Crimen y preferencias de los ricos sobre redistribución y represión en América Latina''.} Presentación de resultados preliminares.}
+
+\experience{Ponencia}{2025}{Congreso Estudiantil de Ciencia Política, UDP}{Santiago, Chile}
+{\small\hspace{1em}\textit{``Más allá de la cifra negra: determinantes de la no denuncia en Chile 2016--2024''.} Presentación de resultados preliminares de investigación sobre victimización utilizando modelo de selección de Heckman.}
+
+% --- FONDOS Y DISTINCIONES ---
+\section*{Fondos y Distinciones}
+
+\experience{Fondo Protagonistas, Vértice UDP}{2026}{Universidad Diego Portales}{Santiago, Chile}
+{\small\hspace{1em}Financiamiento adjudicado para la organización de un Congreso Estudiantil de Ciencias Sociales y Humanidades, con el auspicio del Decano de la Facultad de Ciencias Sociales y Humanidades.}
+
+% --- ESCUELAS, CURSOS Y EXTENSIÓN ACADÉMICA ---
+\section*{Escuelas, Cursos y Extensión Académica}
+\experience{Programa de Invierno: Desafíos de la Seguridad Pública en Chile}{Jun -- Jul 2026}{Instituto de Investigación en Ciencias Sociales (ICSO), UDP}{Santiago, Chile}
+{\small\hspace{1em}Programa de formación en seguridad pública organizado por el ICSO junto a la Fundación Friedrich Ebert (FES), el Instituto Milenio ASOR y VioDemos. \textbf{Contenidos:} política y medición del delito, seguridad municipal y brechas territoriales, vulnerabilidad social y migración, sistema penitenciario y agenda legislativa en seguridad.}
+\vspace{3pt}
+
+\experience{Escuela de Verano en Métodos Avanzados de Investigación}{Ene 2026}{Facultad de Ciencias Sociales y Humanidades, UDP}{Santiago, Chile}
+{\small\hspace{1em}Monitor en el curso de Experimentos e Inferencia Causal del Prof. Giancarlo Visconti. La escuela fue organizada por Posgrados de la Facultad de Ciencias Sociales e Historia de la Universidad Diego Portales y patrocinada por el Doctorado en Ciencias Sociales de la UDP y el Núcleo Milenio Ciencia de Datos Sociales (SODAS).}
+\vspace{3pt}
+
+\experience{Primera Escuela de Criminología}{Nov 2024}{Centro de Estudios en Seguridad Ciudadana, Universidad de Chile}{}
+{\small\hspace{1em}\textbf{Contenidos:} Epistemología criminológica; crimen organizado; políticas de seguridad y prevención; instituciones policiales y justicia penal; victimología; migración y sistema penal; populismo punitivo en América Latina.}
+\vspace{3pt}
+
+\experience{Taller de Aproximaciones Metodológicas en Ciencia Política (40 hrs.)}{Oct 2024}{Universidad Nacional Federico Villarreal}{}
+{\small\hspace{1em}\textbf{Contenidos:} Epistemología; ética en investigación social; Análisis Cualitativo Comparado (QCA); etnografía; y fundamentos de métodos cuantitativos.}
+
+% --- HABILIDADES ---
+\section*{Habilidades y Software}
+{\small
+\begin{itemize}[leftmargin=1.2em, itemsep=0pt, topsep=2pt, parsep=1pt]
+    \item \textbf{Idiomas:} Castellano (Nativo), Inglés (B2 -- lectura, escritura y comunicación académica).
+    \item \textbf{Software Estadístico:} RStudio (avanzado), Stata, SPSS, Excel (avanzado).
+    \item \textbf{Software Cualitativo:} Atlas.ti.
+    \item \textbf{Otras herramientas:} \LaTeX, Markdown, GitHub, Web Scraping (R), Claude Code.
+\end{itemize}
+}
+
+% --- REFERENCIAS ---
+\section*{Referencias}
+Disponibles a solicitud.
+
+\end{document}

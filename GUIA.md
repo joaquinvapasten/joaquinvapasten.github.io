@@ -28,7 +28,7 @@ Edito un .qmd  →  git push  →  GitHub Actions renderiza  →  sitio actualiz
 | `explorador.qmd` | El explorador interactivo (ENUSC / CASEN / Cruce) | ✅ Avanzado |
 | `data/*.csv` | Los datos agregados que alimentan el explorador | ✅ Reemplazar |
 | `prep/*.R` | Scripts R que generan los CSV desde los microdatos | ✅ Avanzado |
-| `files/cv.pdf` | Tu CV en PDF (lo que se descarga) | ✅ Reemplazar |
+| `cv/cv.tex` | Tu CV en LaTeX (el robot lo compila a `files/cv.pdf`) | ✅ Sí |
 | `img/perfil.jpg` | Tu foto de perfil | ✅ Reemplazar |
 | `_quarto.yml` | Configuración: menú, título, links, correo | ⚠️ Con cuidado |
 | `custom.scss` | Los colores y el diseño (tema oscuro) | ⚠️ Solo si quieres |
@@ -83,8 +83,9 @@ title: "Curriculum Vitae"
 2. Publica. *(Tip: que sea cuadrada, ~600×600 px, para que se vea bien.)*
 
 ### 📄 C) Actualizar mi CV
-1. Reemplaza `files/cv.pdf` por tu CV nuevo (mismo nombre `cv.pdf`).
-2. Publica. La página del CV se actualiza sola.
+1. Edita `cv/cv.tex` (con el lápiz ✏️ en GitHub o desde tu computador).
+2. Publica. El robot compila el PDF con la fecha del día y lo sube a la página solo.
+   No hace falta subir `files/cv.pdf` a mano: el robot lo reemplaza cada vez.
 
 ---
 
@@ -96,7 +97,7 @@ title: "Curriculum Vitae"
 3. Edita, baja y pulsa **"Commit changes"** (verde).
 4. ¡Listo! El robot publica solo en unos minutos.
 
-> Para cambiar la **foto** o el **CV** por la web: entra a la carpeta (`img/` o `files/`),
+> Para cambiar la **foto** por la web: entra a la carpeta `img/`,
 > usa **"Add file → Upload files"** y sube el archivo con el **mismo nombre** para reemplazarlo.
 
 ### Opción 2 — Desde tu computador (con Git)

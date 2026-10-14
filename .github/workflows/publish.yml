@@ -14,6 +14,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # El CV se escribe en cv/cv.tex; aquí se compila con la fecha de hoy en hora de Chile
+      - name: Compilar el CV
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: cv.tex
+          working_directory: cv
+          extra_system_packages: "tzdata"
+          pre_compile: "export TZ=America/Santiago"
+
+      - name: Poner el CV compilado en la página
+        run: cp cv/cv.pdf files/cv.pdf
+
       - name: Instalar Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
