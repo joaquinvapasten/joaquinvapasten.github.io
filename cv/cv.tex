@@ -5,7 +5,7 @@
 \usepackage[spanish,es-noshorthands]{babel}
 \usepackage{lmodern}
 \usepackage{microtype}
-\usepackage[top=1.3cm,bottom=1.2cm,left=1.65cm,right=1.65cm]{geometry}
+\usepackage[top=1.3cm,bottom=1.2cm,left=1.4cm,right=1.4cm]{geometry}
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage{titlesec}
@@ -20,19 +20,20 @@
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
-\titleformat{\section}{\color{cvGranate}\normalsize\bfseries}{}{0pt}{}
+\titleformat{\section}{\color{cvGranate}\fontsize{11}{12.6}\selectfont\bfseries}{}{0pt}{}
     [\vspace{1pt}{\color{cvLinea}\titlerule[0.45pt]}]
 \titlespacing*{\section}{0pt}{6.5pt}{3pt}
 
 % Cargo, fechas, institución, lugar y descripción.
 \newcommand{\experience}[5]{%
     \par\noindent\begin{minipage}{\linewidth}%
+        \renewcommand{\arraystretch}{0.92}%
         \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X@{\hspace{1em}}r@{}}%
             \textbf{#1} & {#2}\\
             {\itshape #3} & {\itshape #4}%
         \end{tabularx}\par
         #5%
-    \end{minipage}\par\addvspace{3pt}%
+    \end{minipage}\par\addvspace{2pt}%
 }
 
 % Tipo de publicación, año y referencia.
@@ -40,18 +41,18 @@
     \par\noindent\begin{minipage}{\linewidth}%
         \textbf{#1}\hfill{#2}\par
         #3%
-    \end{minipage}\par\addvspace{3pt}%
+    \end{minipage}\par\addvspace{2pt}%
 }
 
 \newcommand{\hoyenespanol}{\number\day\ de \ifcase\month\or enero\or febrero\or marzo\or abril\or mayo\or junio\or julio\or agosto\or septiembre\or octubre\or noviembre\or diciembre\fi\ de \number\year}
 
 \begin{document}
 \pagestyle{empty}
-\small
+\fontsize{11}{12.6}\selectfont
 
 \begingroup
 \centering
-{\color{cvGranate}\fontsize{23}{25}\selectfont\bfseries Joaquín Valenzuela Pastén\par}
+{\color{cvGranate}\fontsize{19}{21}\selectfont\bfseries Joaquín Valenzuela Pastén\par}
 \vspace{2pt}
 {\normalsize Estudiante de Ciencia Política\par}
 \vspace{2pt}
@@ -59,7 +60,7 @@
 \href{https://www.linkedin.com/in/joaqu%C3%ADn-valenzuela-past%C3%A9n-66ba12273/}{LinkedIn} \enspace\textperiodcentered\enspace
 +56 9 4712 6099 \enspace\textperiodcentered\enspace Santiago, Chile\par
 \vspace{2pt}
-{\footnotesize\itshape Actualizado al \hoyenespanol\par}
+{\small\itshape Actualizado al \hoyenespanol\par}
 \endgroup
 
 % --- PERFIL ---
@@ -178,14 +179,12 @@ Cientista Político en formación con experiencia en investigación cuantitativa
 
 % --- HABILIDADES ---
 \section*{Habilidades y Software}
-{\small
 \begin{itemize}[leftmargin=1.2em, itemsep=0pt, topsep=2pt, parsep=1pt]
     \item \textbf{Idiomas:} Castellano (Nativo), Inglés (B2 -- lectura, escritura y comunicación académica).
     \item \textbf{Software Estadístico:} RStudio (avanzado), Stata, SPSS, Excel (avanzado).
     \item \textbf{Software Cualitativo:} Atlas.ti, MAXQDA.
     \item \textbf{Otras herramientas:} \LaTeX, Markdown, GitHub, Web Scraping (R), Claude Code.
 \end{itemize}
-}
 
 % --- REFERENCIAS ---
 \section*{Referencias}
