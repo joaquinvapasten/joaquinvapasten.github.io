@@ -17,6 +17,7 @@ page-layout: full
 [GitHub](https://github.com/joaquinvapasten){.pill}
 [LinkedIn](https://www.linkedin.com/in/joaqu%C3%ADn-valenzuela-past%C3%A9n-66ba12273/){.pill}
 [CV](cv.qmd){.pill}
+[Presentación de mi tesina (PDF)](presentacion.pdf){.pill}
 :::
 :::
 :::
